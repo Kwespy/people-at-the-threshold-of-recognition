@@ -1,6 +1,6 @@
 {
   "project": "Border Transit",
-  "generated_at_utc": "2026-08-16T16:23:55.201080+00:00",
+  "generated_at_utc": "2026-08-16T16:57:37.686778+00:00",
   "pool_count": 47,
   "rendered_count": 47,
   "failed_count": 0,
@@ -124,7 +124,7 @@
         "deriva_vectorial_rgb"
       ],
       "generator_seed": 189105568509239,
-      "generated_at_utc": "2026-08-16T16:21:29.634094+00:00",
+      "generated_at_utc": "2026-08-16T16:55:57.682586+00:00",
       "render_status": "ok"
     },
     {
@@ -239,7 +239,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 138127286139701,
-      "generated_at_utc": "2026-08-16T16:21:30.509181+00:00",
+      "generated_at_utc": "2026-08-16T16:55:58.405628+00:00",
       "render_status": "ok"
     },
     {
@@ -376,7 +376,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 14427651766686,
-      "generated_at_utc": "2026-08-16T16:21:33.711721+00:00",
+      "generated_at_utc": "2026-08-16T16:56:00.602859+00:00",
       "render_status": "ok"
     },
     {
@@ -495,7 +495,7 @@
         "matriz_color"
       ],
       "generator_seed": 69399503047767,
-      "generated_at_utc": "2026-08-16T16:21:34.752864+00:00",
+      "generated_at_utc": "2026-08-16T16:56:01.314286+00:00",
       "render_status": "ok"
     },
     {
@@ -613,7 +613,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 394258351000,
-      "generated_at_utc": "2026-08-16T16:21:36.336404+00:00",
+      "generated_at_utc": "2026-08-16T16:56:02.324943+00:00",
       "render_status": "ok"
     },
     {
@@ -782,7 +782,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 60651732151305,
-      "generated_at_utc": "2026-08-16T16:21:53.213868+00:00",
+      "generated_at_utc": "2026-08-16T16:56:13.100863+00:00",
       "render_status": "ok"
     },
     {
@@ -880,7 +880,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 250736153118368,
-      "generated_at_utc": "2026-08-16T16:21:57.868106+00:00",
+      "generated_at_utc": "2026-08-16T16:56:16.250605+00:00",
       "render_status": "ok"
     },
     {
@@ -982,7 +982,7 @@
         "deriva_vectorial_rgb"
       ],
       "generator_seed": 219744127734139,
-      "generated_at_utc": "2026-08-16T16:22:03.000649+00:00",
+      "generated_at_utc": "2026-08-16T16:56:19.942117+00:00",
       "render_status": "ok"
     },
     {
@@ -1113,7 +1113,7 @@
         "matriz_color"
       ],
       "generator_seed": 83953013805290,
-      "generated_at_utc": "2026-08-16T16:22:04.834906+00:00",
+      "generated_at_utc": "2026-08-16T16:56:21.247772+00:00",
       "render_status": "ok"
     },
     {
@@ -1211,7 +1211,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 270310902095315,
-      "generated_at_utc": "2026-08-16T16:22:06.589563+00:00",
+      "generated_at_utc": "2026-08-16T16:56:22.481396+00:00",
       "render_status": "ok"
     },
     {
@@ -1311,7 +1311,7 @@
         "matriz_color"
       ],
       "generator_seed": 278294354269635,
-      "generated_at_utc": "2026-08-16T16:22:07.001502+00:00",
+      "generated_at_utc": "2026-08-16T16:56:22.803029+00:00",
       "render_status": "ok"
     },
     {
@@ -1434,7 +1434,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 220422022992383,
-      "generated_at_utc": "2026-08-16T16:22:09.579700+00:00",
+      "generated_at_utc": "2026-08-16T16:56:24.760656+00:00",
       "render_status": "ok"
     },
     {
@@ -1533,7 +1533,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 55771697385979,
-      "generated_at_utc": "2026-08-16T16:22:13.995504+00:00",
+      "generated_at_utc": "2026-08-16T16:56:27.584640+00:00",
       "render_status": "ok"
     },
     {
@@ -1627,7 +1627,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 258752117688753,
-      "generated_at_utc": "2026-08-16T16:22:20.490752+00:00",
+      "generated_at_utc": "2026-08-16T16:56:32.336535+00:00",
       "render_status": "ok"
     },
     {
@@ -1776,7 +1776,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 180967229710715,
-      "generated_at_utc": "2026-08-16T16:22:42.137640+00:00",
+      "generated_at_utc": "2026-08-16T16:56:47.610917+00:00",
       "render_status": "ok"
     },
     {
@@ -1880,7 +1880,7 @@
         "deriva_vectorial_rgb"
       ],
       "generator_seed": 169313418117075,
-      "generated_at_utc": "2026-08-16T16:22:45.819778+00:00",
+      "generated_at_utc": "2026-08-16T16:56:50.156825+00:00",
       "render_status": "ok"
     },
     {
@@ -1981,7 +1981,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 179796660308720,
-      "generated_at_utc": "2026-08-16T16:22:47.303046+00:00",
+      "generated_at_utc": "2026-08-16T16:56:51.122927+00:00",
       "render_status": "ok"
     },
     {
@@ -2136,7 +2136,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 205704739211144,
-      "generated_at_utc": "2026-08-16T16:22:51.395773+00:00",
+      "generated_at_utc": "2026-08-16T16:56:54.138913+00:00",
       "render_status": "ok"
     },
     {
@@ -2239,7 +2239,7 @@
         "matriz_color"
       ],
       "generator_seed": 44707195044802,
-      "generated_at_utc": "2026-08-16T16:22:51.622652+00:00",
+      "generated_at_utc": "2026-08-16T16:56:54.315298+00:00",
       "render_status": "ok"
     },
     {
@@ -2352,7 +2352,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 240240086765753,
-      "generated_at_utc": "2026-08-16T16:22:52.309901+00:00",
+      "generated_at_utc": "2026-08-16T16:56:54.880102+00:00",
       "render_status": "ok"
     },
     {
@@ -2502,7 +2502,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 102343664805658,
-      "generated_at_utc": "2026-08-16T16:22:53.351104+00:00",
+      "generated_at_utc": "2026-08-16T16:56:55.580962+00:00",
       "render_status": "ok"
     },
     {
@@ -2623,7 +2623,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 51952592340537,
-      "generated_at_utc": "2026-08-16T16:22:56.244575+00:00",
+      "generated_at_utc": "2026-08-16T16:56:57.452210+00:00",
       "render_status": "ok"
     },
     {
@@ -2746,7 +2746,7 @@
         "deriva_vectorial_rgb"
       ],
       "generator_seed": 178993510646319,
-      "generated_at_utc": "2026-08-16T16:22:58.406929+00:00",
+      "generated_at_utc": "2026-08-16T16:56:59.011702+00:00",
       "render_status": "ok"
     },
     {
@@ -2899,7 +2899,7 @@
         "matriz_color"
       ],
       "generator_seed": 222221106354757,
-      "generated_at_utc": "2026-08-16T16:23:01.956061+00:00",
+      "generated_at_utc": "2026-08-16T16:57:01.797273+00:00",
       "render_status": "ok"
     },
     {
@@ -3010,7 +3010,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 214605948644056,
-      "generated_at_utc": "2026-08-16T16:23:02.110654+00:00",
+      "generated_at_utc": "2026-08-16T16:57:01.926989+00:00",
       "render_status": "ok"
     },
     {
@@ -3123,7 +3123,7 @@
         "matriz_color"
       ],
       "generator_seed": 173908188218043,
-      "generated_at_utc": "2026-08-16T16:23:02.503197+00:00",
+      "generated_at_utc": "2026-08-16T16:57:02.231727+00:00",
       "render_status": "ok"
     },
     {
@@ -3257,7 +3257,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 23894341643756,
-      "generated_at_utc": "2026-08-16T16:23:03.306995+00:00",
+      "generated_at_utc": "2026-08-16T16:57:02.871050+00:00",
       "render_status": "ok"
     },
     {
@@ -3362,7 +3362,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 97336108161914,
-      "generated_at_utc": "2026-08-16T16:23:07.504031+00:00",
+      "generated_at_utc": "2026-08-16T16:57:05.745145+00:00",
       "render_status": "ok"
     },
     {
@@ -3462,7 +3462,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 111409873752298,
-      "generated_at_utc": "2026-08-16T16:23:10.388450+00:00",
+      "generated_at_utc": "2026-08-16T16:57:07.653639+00:00",
       "render_status": "ok"
     },
     {
@@ -3623,7 +3623,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 8288545224955,
-      "generated_at_utc": "2026-08-16T16:23:16.759013+00:00",
+      "generated_at_utc": "2026-08-16T16:57:11.852458+00:00",
       "render_status": "ok"
     },
     {
@@ -3732,7 +3732,7 @@
         "deriva_vectorial_rgb"
       ],
       "generator_seed": 53928307889155,
-      "generated_at_utc": "2026-08-16T16:23:17.321822+00:00",
+      "generated_at_utc": "2026-08-16T16:57:12.302082+00:00",
       "render_status": "ok"
     },
     {
@@ -3839,7 +3839,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 243206254666206,
-      "generated_at_utc": "2026-08-16T16:23:18.814878+00:00",
+      "generated_at_utc": "2026-08-16T16:57:13.282369+00:00",
       "render_status": "ok"
     },
     {
@@ -3975,7 +3975,7 @@
         "matriz_color"
       ],
       "generator_seed": 243044218202203,
-      "generated_at_utc": "2026-08-16T16:23:20.219169+00:00",
+      "generated_at_utc": "2026-08-16T16:57:14.234299+00:00",
       "render_status": "ok"
     },
     {
@@ -4088,7 +4088,7 @@
         "matriz_color"
       ],
       "generator_seed": 9038994143739,
-      "generated_at_utc": "2026-08-16T16:23:20.714456+00:00",
+      "generated_at_utc": "2026-08-16T16:57:14.564639+00:00",
       "render_status": "ok"
     },
     {
@@ -4202,7 +4202,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 108062383865425,
-      "generated_at_utc": "2026-08-16T16:23:21.393224+00:00",
+      "generated_at_utc": "2026-08-16T16:57:15.032810+00:00",
       "render_status": "ok"
     },
     {
@@ -4334,7 +4334,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 238323251684900,
-      "generated_at_utc": "2026-08-16T16:23:24.500261+00:00",
+      "generated_at_utc": "2026-08-16T16:57:17.170449+00:00",
       "render_status": "ok"
     },
     {
@@ -4430,7 +4430,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 85892429370002,
-      "generated_at_utc": "2026-08-16T16:23:26.166129+00:00",
+      "generated_at_utc": "2026-08-16T16:57:18.316327+00:00",
       "render_status": "ok"
     },
     {
@@ -4527,7 +4527,7 @@
         "deriva_vectorial_rgb"
       ],
       "generator_seed": 101741553422559,
-      "generated_at_utc": "2026-08-16T16:23:28.336022+00:00",
+      "generated_at_utc": "2026-08-16T16:57:19.805277+00:00",
       "render_status": "ok"
     },
     {
@@ -4679,7 +4679,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 35623424385622,
-      "generated_at_utc": "2026-08-16T16:23:36.706619+00:00",
+      "generated_at_utc": "2026-08-16T16:57:25.242331+00:00",
       "render_status": "ok"
     },
     {
@@ -4809,7 +4809,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 109922155907076,
-      "generated_at_utc": "2026-08-16T16:23:39.248278+00:00",
+      "generated_at_utc": "2026-08-16T16:57:26.891488+00:00",
       "render_status": "ok"
     },
     {
@@ -4921,7 +4921,7 @@
         "matriz_color"
       ],
       "generator_seed": 166339884992540,
-      "generated_at_utc": "2026-08-16T16:23:39.489412+00:00",
+      "generated_at_utc": "2026-08-16T16:57:27.062354+00:00",
       "render_status": "ok"
     },
     {
@@ -5079,7 +5079,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 106643496888693,
-      "generated_at_utc": "2026-08-16T16:23:41.670650+00:00",
+      "generated_at_utc": "2026-08-16T16:57:28.479740+00:00",
       "render_status": "ok"
     },
     {
@@ -5188,7 +5188,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 118994380616610,
-      "generated_at_utc": "2026-08-16T16:23:44.809256+00:00",
+      "generated_at_utc": "2026-08-16T16:57:30.538905+00:00",
       "render_status": "ok"
     },
     {
@@ -5295,7 +5295,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 141072701769050,
-      "generated_at_utc": "2026-08-16T16:23:45.538508+00:00",
+      "generated_at_utc": "2026-08-16T16:57:30.984709+00:00",
       "render_status": "ok"
     },
     {
@@ -5458,7 +5458,7 @@
         "matriz_color"
       ],
       "generator_seed": 194879505627514,
-      "generated_at_utc": "2026-08-16T16:23:46.795870+00:00",
+      "generated_at_utc": "2026-08-16T16:57:31.844054+00:00",
       "render_status": "ok"
     },
     {
@@ -5550,7 +5550,7 @@
         "deriva_vectorial_rgb"
       ],
       "generator_seed": 1867480138876,
-      "generated_at_utc": "2026-08-16T16:23:52.114730+00:00",
+      "generated_at_utc": "2026-08-16T16:57:35.605872+00:00",
       "render_status": "ok"
     },
     {
@@ -5643,7 +5643,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 258436922741698,
-      "generated_at_utc": "2026-08-16T16:23:55.200096+00:00",
+      "generated_at_utc": "2026-08-16T16:57:37.686079+00:00",
       "render_status": "ok"
     }
   ],

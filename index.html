@@ -559,6 +559,240 @@
 
     }
 
+  
+
+    /* ======================================================
+       RESPONSIVE / MOBILE PRESENTATION PATCH
+       SOLO PRESENTACIÓN. La lógica LIVE queda intacta.
+       ====================================================== */
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      margin: 0;
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+
+    #stage {
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+    }
+
+    #image {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    /* El título visible desaparece, pero el elemento sigue
+       existiendo para no romper el JS. */
+    #caption {
+      display: none !important;
+    }
+
+    /* El selector manual de idioma desaparece, pero se mantiene
+       en el DOM para que el sistema bilingüe siga funcionando. */
+    #languageSwitch {
+      display: none !important;
+    }
+
+    /* FRONTERA + EVENTO siempre visibles */
+    #metadata {
+      top: max(14px, env(safe-area-inset-top));
+      left: 0;
+      width: max-content;
+      max-width: min(760px, 92vw);
+      padding:
+        7px 12px
+        7px max(14px, env(safe-area-inset-left));
+      background: rgba(0, 0, 0, 0.82);
+    }
+
+    /* Texto explicativo visible abajo a la izquierda */
+    #projectInfo {
+      top: auto;
+      right: auto;
+      left: 0;
+      bottom: max(14px, env(safe-area-inset-bottom));
+      width: auto;
+      max-width: min(640px, 76vw);
+      padding:
+        8px 12px
+        8px max(14px, env(safe-area-inset-left));
+      background: rgba(0, 0, 0, 0.82);
+      text-align: left;
+      text-transform: none;
+      font-size: 10px;
+      line-height: 1.45;
+      letter-spacing: 0.015em;
+    }
+
+    /* FUENTE / UBICACIÓN / APARATO:
+       oculto hasta pulsar INFO */
+    #sourceInfo {
+      display: none;
+      right: max(12px, env(safe-area-inset-right));
+      bottom:
+        calc(
+          max(12px, env(safe-area-inset-bottom))
+          + 37px
+        );
+      width: auto;
+      max-width: min(520px, 82vw);
+      padding: 8px 10px;
+      background: rgba(0, 0, 0, 0.90);
+      text-align: right;
+      font-size: 9px;
+      line-height: 1.5;
+      pointer-events: none;
+    }
+
+    #sourceInfo.open {
+      display: block;
+    }
+
+    #sourceToggle {
+      position: absolute;
+      right: max(12px, env(safe-area-inset-right));
+      bottom: max(12px, env(safe-area-inset-bottom));
+      z-index: 40;
+
+      appearance: none;
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.48);
+      border-radius: 2px;
+
+      margin: 0;
+      padding: 5px 7px;
+
+      background: rgba(0, 0, 0, 0.72);
+      color: #fff;
+
+      font: inherit;
+      font-size: 8px;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #sourceToggle:active {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    @media (max-width: 700px) {
+
+      #stage {
+        height: 100vh;
+        height: 100dvh;
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
+
+      #image {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      #metadata {
+        top: max(10px, env(safe-area-inset-top));
+        max-width: 88vw;
+
+        padding:
+          5px 8px
+          5px max(10px, env(safe-area-inset-left));
+
+        font-size: 9px;
+        line-height: 1.4;
+        letter-spacing: 0.03em;
+      }
+
+      #projectInfo {
+        left: 0;
+        bottom: max(10px, env(safe-area-inset-bottom));
+
+        width: auto;
+        max-width: 76vw;
+
+        padding:
+          6px 8px
+          6px max(10px, env(safe-area-inset-left));
+
+        font-size: 8px;
+        line-height: 1.38;
+        letter-spacing: 0.01em;
+      }
+
+      #sourceInfo {
+        display: none;
+
+        right: max(10px, env(safe-area-inset-right));
+        bottom:
+          calc(
+            max(10px, env(safe-area-inset-bottom))
+            + 34px
+          );
+
+        max-width: 80vw;
+
+        padding: 7px 8px;
+
+        font-size: 8px;
+        line-height: 1.45;
+      }
+
+      #sourceInfo.open {
+        display: block;
+      }
+
+      #sourceToggle {
+        right: max(10px, env(safe-area-inset-right));
+        bottom: max(10px, env(safe-area-inset-bottom));
+
+        padding: 5px 6px;
+
+        font-size: 7px;
+      }
+
+      .arrow {
+        width: 50px;
+      }
+
+      .arrow svg {
+        width: 30px;
+        height: 30px;
+      }
+
+      #searching {
+        max-width: 86vw;
+        white-space: normal;
+        text-align: center;
+        font-size: 9px;
+      }
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      #stage {
+        height: -webkit-fill-available;
+      }
+    }
+
   </style>
 
 </head>
@@ -625,6 +859,16 @@
 
 
     <div id="sourceInfo"></div>
+
+    <button
+      id="sourceToggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="sourceInfo"
+      aria-label="Source, location and apparatus"
+    >
+      INFO
+    </button>
 
 
 
@@ -706,6 +950,32 @@
       document.getElementById(
         "sourceInfo"
       );
+
+    const sourceToggle =
+      document.getElementById(
+        "sourceToggle"
+      );
+
+
+    sourceToggle.addEventListener(
+      "click",
+      () => {
+
+        const isOpen =
+          sourceInfo.classList.toggle(
+            "open"
+          );
+
+        sourceToggle.setAttribute(
+          "aria-expanded",
+          isOpen
+          ?
+          "true"
+          :
+          "false"
+        );
+      }
+    );
 
 
     const searching =
