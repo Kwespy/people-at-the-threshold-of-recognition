@@ -574,6 +574,11 @@
       margin: 0;
       overflow: hidden;
       overscroll-behavior: none;
+
+      /* Evita que Safari/Chrome móvil agranden el texto
+         automáticamente al girar el teléfono. */
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     #stage {
@@ -619,23 +624,10 @@
       background: rgba(0, 0, 0, 0.82);
     }
 
-    /* Texto explicativo visible abajo a la izquierda */
+    /* La descripción ya no aparece separada.
+       El nodo sigue existiendo para no tocar la lógica de idioma. */
     #projectInfo {
-      top: auto;
-      right: auto;
-      left: 0;
-      bottom: max(14px, env(safe-area-inset-bottom));
-      width: auto;
-      max-width: min(640px, 76vw);
-      padding:
-        8px 12px
-        8px max(14px, env(safe-area-inset-left));
-      background: rgba(0, 0, 0, 0.82);
-      text-align: left;
-      text-transform: none;
-      font-size: 10px;
-      line-height: 1.45;
-      letter-spacing: 0.015em;
+      display: none !important;
     }
 
     /* FUENTE / UBICACIÓN / APARATO:
@@ -660,6 +652,27 @@
 
     #sourceInfo.open {
       display: block;
+    }
+
+    #sourceInfo .infoDescription {
+      margin: 0 0 8px 0;
+      padding: 0 0 8px 0;
+      border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.22);
+
+      text-align: left;
+      text-transform: none;
+      color: rgba(255, 255, 255, 0.92);
+
+      font-size: 10px;
+      line-height: 1.45;
+      letter-spacing: 0.015em;
+    }
+
+    #sourceInfo .infoDetails {
+      text-align: right;
+      text-transform: uppercase;
     }
 
     #sourceToggle {
@@ -723,22 +736,6 @@
         letter-spacing: 0.03em;
       }
 
-      #projectInfo {
-        left: 0;
-        bottom: max(10px, env(safe-area-inset-bottom));
-
-        width: auto;
-        max-width: 76vw;
-
-        padding:
-          6px 8px
-          6px max(10px, env(safe-area-inset-left));
-
-        font-size: 8px;
-        line-height: 1.38;
-        letter-spacing: 0.01em;
-      }
-
       #sourceInfo {
         display: none;
 
@@ -759,6 +756,18 @@
 
       #sourceInfo.open {
         display: block;
+      }
+
+      #sourceInfo .infoDescription {
+        margin-bottom: 6px;
+        padding-bottom: 6px;
+        font-size: 8px;
+        line-height: 1.38;
+      }
+
+      #sourceInfo .infoDetails {
+        font-size: 8px;
+        line-height: 1.45;
       }
 
       #sourceToggle {
@@ -790,6 +799,70 @@
     @supports (-webkit-touch-callout: none) {
       #stage {
         height: -webkit-fill-available;
+      }
+    }
+
+
+    /* Mantiene exactamente la escala tipográfica móvil
+       aunque el teléfono esté en horizontal y supere 700px. */
+    @media (hover: none) and (pointer: coarse) {
+
+      #metadata {
+        top: max(10px, env(safe-area-inset-top));
+        max-width: 88vw;
+        padding:
+          5px 8px
+          5px max(10px, env(safe-area-inset-left));
+        font-size: 9px;
+        line-height: 1.4;
+        letter-spacing: 0.03em;
+      }
+
+      #sourceInfo,
+      #sourceInfo.open {
+        right: max(10px, env(safe-area-inset-right));
+        bottom:
+          calc(
+            max(10px, env(safe-area-inset-bottom))
+            + 34px
+          );
+        max-width: 80vw;
+        padding: 7px 8px;
+        font-size: 8px;
+        line-height: 1.45;
+      }
+
+      #sourceInfo .infoDescription {
+        font-size: 8px;
+        line-height: 1.38;
+      }
+
+      #sourceInfo .infoDetails {
+        font-size: 8px;
+        line-height: 1.45;
+      }
+
+      #sourceToggle {
+        right: max(10px, env(safe-area-inset-right));
+        bottom: max(10px, env(safe-area-inset-bottom));
+        padding: 5px 6px;
+        font-size: 7px;
+      }
+
+      #searching {
+        max-width: 86vw;
+        white-space: normal;
+        text-align: center;
+        font-size: 9px;
+      }
+
+      .arrow {
+        width: 50px;
+      }
+
+      .arrow svg {
+        width: 30px;
+        height: 30px;
       }
     }
 
@@ -2488,9 +2561,19 @@
 
 
       sourceInfo.innerHTML =
+        '<div class="infoDescription">'
+        +
+        t("description")
+        +
+        '</div>'
+        +
+        '<div class="infoDetails">'
+        +
         getSourceInfo(
           item
-        );
+        )
+        +
+        '</div>';
     }
 
 
