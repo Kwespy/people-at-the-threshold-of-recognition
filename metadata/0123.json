@@ -1,0 +1,69 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C0039.webp",
+  "id": "0123",
+  "original": "originals/0123.webp",
+  "original_file": "originals/0123.webp",
+  "border": "United States–Mexico / South Texas corridor",
+  "people_count": 23,
+  "hunter_score": 81.36,
+  "metadata_recovery_source": "camera_hunter_v2 console log",
+  "score": 67.22,
+  "grade": "STRONG",
+  "origin_kind": "crawled_page_asset",
+  "title": "Bodycam footage captures DPS operation as 23 migrants found in semi truck on I-35",
+  "source_url": "https://news4sanantonio.com/news/local/bodycam-footage-captures-dps-operation-as-23-migrants-found-in-semi-truck-on-i-35-dhs-cbp-border-agents-immigration",
+  "image_url": "https://news4sanantonio.com/resources/media2/16x9/1280/1320/center/90/b303fbd1-110f-442a-8ae9-4e361969c959-VDPS23MIGRANTSINTRUCK.transfer_frame_2608.jpeg",
+  "border_hint": "Chile–Bolivia",
+  "countries": [
+    "Chile",
+    "Bolivia"
+  ],
+  "capture_family_search": "bodycam",
+  "capture_regime": "body_worn_continuous",
+  "intentional_still_capture": false,
+  "capture_hits": [
+    "bodycam"
+  ],
+  "people_required": true,
+  "people_visible": true,
+  "people_count_yolo": 16,
+  "people_max_confidence": 0.7533,
+  "route_documented": false,
+  "route_confidence": "needs_review",
+  "mean_saturation": 44.97,
+  "sharpness": 416.78,
+  "width": 1320,
+  "height": 743,
+  "sha256": "270109e1c2758163689bc31724eda5fb2d2b69965f0ed88dad2e2885f7068b63",
+  "perceptual_hash": "0c809a9ababa9c96",
+  "local_file": "candidates/C0039.jpg",
+  "extra": {
+    "asset_score": 25,
+    "query": "Chile Bolivia border migrants (bodycam OR \"body-worn camera\" OR \"body cam footage\") (migrant OR migrants OR refugee OR people OR crossing)"
+  },
+  "found_at_utc": "2026-08-16T10:53:44.854752+00:00",
+  "hunter_candidate_id": "C0039",
+  "hunter_run": "run_20260816_134656",
+  "hunter_metadata_file": "camera_hunter_v2/run_20260816_134656/metadata/C0039.json",
+  "image_device": "body-worn digital video camera",
+  "institution": "Texas Department of Public Safety / News 4 San Antonio (WOAI)",
+  "location": "I-35, La Salle County, Texas, United States",
+  "metadata_confidence": "verified by News 4 San Antonio",
+  "metadata_basis": "Texas DPS bodycam footage published by News 4 San Antonio",
+  "documented_devices": [
+    "Texas DPS body-worn camera"
+  ],
+  "apparatus": "law-enforcement bodycam",
+  "metadata_overrides_previous": {
+    "border": "Belarus–Poland"
+  },
+  "metadata_enriched_at": "2026-08-16T17:41:19.057035",
+  "metadata_enrichment_method": "source-page verification + visual inspection + explicit inference where needed",
+  "year": 2025,
+  "event_date": "2025",
+  "year_confidence": "documented",
+  "year_basis": "Texas DPS incident occurred November 28, 2025; News 4 San Antonio",
+  "year_inferred": false
+}

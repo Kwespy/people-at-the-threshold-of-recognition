@@ -1,0 +1,71 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C0014.webp",
+  "id": "0116",
+  "original": "originals/0116.webp",
+  "original_file": "originals/0116.webp",
+  "border": "France–United Kingdom maritime",
+  "people_count": 11,
+  "hunter_score": 86.58,
+  "metadata_recovery_source": "camera_hunter_v2 console log",
+  "score": 97.39,
+  "grade": "STRONG",
+  "origin_kind": "direct_image_search",
+  "title": "Every UK town where taxpayers will pay rent for Channel migrants ...",
+  "source_url": "https://www.express.co.uk/news/politics/2047411/Channel-migrants-asylum-seekers-hotels",
+  "image_url": "https://cdn.images.express.co.uk/img/dynamic/139/590x/secondary/6123371.jpg?r=1745839792607",
+  "border_hint": "France–United Kingdom",
+  "countries": [
+    "France",
+    "United Kingdom"
+  ],
+  "capture_family_search": "trailcam",
+  "capture_regime": "motion_triggered_unattended",
+  "intentional_still_capture": false,
+  "capture_hits": [
+    "trail camera",
+    "game camera",
+    "motion triggered"
+  ],
+  "people_required": true,
+  "people_visible": true,
+  "people_count_yolo": 16,
+  "people_max_confidence": 0.8207,
+  "route_documented": false,
+  "route_confidence": "needs_review",
+  "mean_saturation": 166.35,
+  "sharpness": 406.79,
+  "width": 590,
+  "height": 393,
+  "sha256": "83251842e1fde6f81ee887f54c0e5cf1bbfa6ccc0bd40c586f75d147258a6d9a",
+  "perceptual_hash": "f0e0f0c3173ec0d6",
+  "local_file": "candidates/C0014.jpg",
+  "extra": {
+    "engine": "www.express.co.uk",
+    "query": "France UK Channel migrants (\"trail camera\" OR \"game camera\" OR \"motion triggered camera\") (migrant OR migrants OR refugee OR people OR crossing)"
+  },
+  "found_at_utc": "2026-08-16T10:49:45.243726+00:00",
+  "hunter_candidate_id": "C0014",
+  "hunter_run": "run_20260816_134656",
+  "hunter_metadata_file": "camera_hunter_v2/run_20260816_134656/metadata/C0014.json",
+  "image_device": "digital still camera",
+  "institution": "Daily Express",
+  "location": "English Channel / United Kingdom coast",
+  "metadata_confidence": "border/source high; device inferred",
+  "metadata_basis": "source page + image inspection",
+  "documented_devices": [
+    "press/news still camera (exact model not documented)"
+  ],
+  "apparatus": "press/news still photography",
+  "metadata_overrides_previous": {
+    "border": "Mozambique–South Africa"
+  },
+  "metadata_enriched_at": "2026-08-16T17:41:19.056677",
+  "metadata_enrichment_method": "source-page verification + visual inspection + explicit inference where needed",
+  "year": 2025,
+  "event_date": "2025",
+  "year_confidence": "documented",
+  "year_basis": "Express source/publication context from April 2025",
+  "year_inferred": false
+}

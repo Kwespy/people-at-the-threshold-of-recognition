@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.DS_Store
+live_rendered/
+pool_backups/
+*_scan/
+scans/

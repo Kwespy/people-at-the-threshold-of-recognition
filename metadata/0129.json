@@ -1,0 +1,71 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C0064.webp",
+  "id": "0129",
+  "original": "originals/0129.webp",
+  "original_file": "originals/0129.webp",
+  "border": "France–United Kingdom maritime",
+  "people_count": 14,
+  "hunter_score": 89.88,
+  "metadata_recovery_source": "camera_hunter_v2 console log",
+  "score": 89.88,
+  "grade": "STRONG",
+  "origin_kind": "direct_image_search",
+  "title": "British taxpayers handed France £8,000 for each Channel migrant stopped ...",
+  "source_url": "https://www.dailymail.com/news/article-15594297/British-taxpayers-France-Channel-migrant-Keir-Starmer-deaL.html",
+  "image_url": "https://i.dailymail.co.uk/1s/2026/02/26/08/106684909-15594297-People_rescued_during_attempts_to_cross_the_English_Channel_by_s-a-1_1772096266185.jpg",
+  "border_hint": "France–United Kingdom",
+  "countries": [
+    "France",
+    "United Kingdom"
+  ],
+  "capture_family_search": "trailcam",
+  "capture_regime": "motion_triggered_unattended",
+  "intentional_still_capture": false,
+  "capture_hits": [
+    "trail camera",
+    "game camera",
+    "motion triggered"
+  ],
+  "people_required": true,
+  "people_visible": true,
+  "people_count_yolo": 14,
+  "people_max_confidence": 0.3723,
+  "route_documented": false,
+  "route_confidence": "needs_review",
+  "mean_saturation": 102.79,
+  "sharpness": 4327.09,
+  "width": 634,
+  "height": 428,
+  "sha256": "9daaec7f38477628af7cf1050ab30ab9d18f9fcea94aa489fb5532a558db23f0",
+  "perceptual_hash": "e6e0c179429c9a96",
+  "local_file": "candidates/C0064.jpg",
+  "extra": {
+    "engine": "",
+    "query": "France UK Channel migrants (\"trail camera\" OR \"game camera\" OR \"motion triggered camera\") (migrant OR migrants OR refugee OR people OR crossing)"
+  },
+  "found_at_utc": "2026-08-16T10:27:53.261961+00:00",
+  "hunter_candidate_id": "C0064",
+  "hunter_run": "run_20260816_132313",
+  "hunter_metadata_file": "camera_hunter_v2/run_20260816_132313/metadata/C0064.json",
+  "image_device": "digital still camera",
+  "institution": "Daily Mail",
+  "location": "Dover / English Channel, United Kingdom",
+  "metadata_confidence": "border/source high; device inferred",
+  "metadata_basis": "source page + image inspection",
+  "documented_devices": [
+    "press/news still camera (exact model not documented)"
+  ],
+  "apparatus": "press/news still photography",
+  "metadata_overrides_previous": {
+    "border": "France–United Kingdom"
+  },
+  "metadata_enriched_at": "2026-08-16T17:41:19.057277",
+  "metadata_enrichment_method": "source-page verification + visual inspection + explicit inference where needed",
+  "year": 2026,
+  "event_date": "2026",
+  "year_confidence": "documented",
+  "year_basis": "Daily Mail source/image dated February 2026",
+  "year_inferred": false
+}

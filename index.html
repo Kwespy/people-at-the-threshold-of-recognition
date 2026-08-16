@@ -1,0 +1,3364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>People at the Threshold of Recognition</title>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html,
+    body {
+
+      width: 100%;
+      height: 100%;
+
+      margin: 0;
+
+      overflow: hidden;
+
+      background: #000;
+      color: #fff;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    }
+
+
+    #stage {
+
+      position: fixed;
+
+      inset: 0;
+
+      width: 100vw;
+      height: 100vh;
+
+      overflow: hidden;
+
+      background: #000;
+    }
+
+
+    #image {
+
+      position: absolute;
+
+      inset: 0;
+
+      width: 100vw;
+      height: 100vh;
+
+      object-fit: cover;
+
+      object-position:
+        center center;
+
+      display: block;
+
+      z-index: 1;
+
+      user-select: none;
+
+      -webkit-user-drag: none;
+
+      background: #000;
+    }
+
+
+    #stage::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 2;
+
+      pointer-events: none;
+
+      background:
+
+        linear-gradient(
+
+          to bottom,
+
+          rgba(
+            0,
+            0,
+            0,
+            0.55
+          )
+          0%,
+
+          rgba(
+            0,
+            0,
+            0,
+            0.10
+          )
+          20%,
+
+          rgba(
+            0,
+            0,
+            0,
+            0
+          )
+          50%,
+
+          rgba(
+            0,
+            0,
+            0,
+            0.55
+          )
+          100%
+
+        );
+    }
+
+
+    #metadata {
+
+      position: absolute;
+
+      top: 28px;
+      left: 0;
+
+      z-index: 10;
+
+      width: max-content;
+      max-width: min(680px, 92vw);
+
+      padding:
+        7px 14px
+        7px 30px;
+
+      background: #000;
+
+      font-size: 13px;
+
+      line-height: 1.55;
+
+      letter-spacing: 0.04em;
+
+      text-transform: uppercase;
+
+      pointer-events: none;
+    }
+
+
+    .label {
+      opacity: 0.55;
+    }
+
+
+    #caption {
+
+      position: absolute;
+
+      left: 0;
+      bottom: 28px;
+
+      z-index: 10;
+
+      width: max-content;
+      max-width: 92vw;
+
+      padding:
+        7px 14px
+        7px 30px;
+
+      background: #000;
+
+      font-size: 13px;
+
+      letter-spacing: 0.03em;
+
+      text-transform: uppercase;
+
+      pointer-events: none;
+    }
+
+
+    #sourceInfo {
+
+      position: absolute;
+
+      right: 0;
+      bottom: 28px;
+
+      z-index: 10;
+
+      width: max-content;
+      max-width: min(520px, 92vw);
+
+      padding:
+        7px 30px
+        7px 14px;
+
+      background: #000;
+
+      text-align: right;
+
+      font-size: 9px;
+
+      line-height: 1.55;
+
+      letter-spacing: 0.04em;
+
+      text-transform: uppercase;
+
+      color: rgba(255, 255, 255, 0.78);
+
+      opacity: 1;
+
+      pointer-events: none;
+    }
+
+
+
+    #projectInfo {
+
+      position: absolute;
+
+      top: 28px;
+      right: 0;
+
+      z-index: 10;
+
+      width: 420px;
+      max-width: 46vw;
+
+      padding:
+        9px 30px
+        9px 14px;
+
+      background: #000;
+
+      text-align: right;
+
+      font-size: 9px;
+
+      line-height: 1.55;
+
+      letter-spacing: 0.04em;
+
+      text-transform: uppercase;
+
+      color: rgba(255, 255, 255, 0.78);
+
+      pointer-events: none;
+    }
+
+
+    #languageSwitch {
+
+      position: absolute;
+
+      top: 28px;
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      z-index: 30;
+
+      display: flex;
+
+      background: #000;
+
+      padding:
+        5px 7px;
+
+      font-size: 9px;
+
+      line-height: 1;
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+    }
+
+
+    #languageSwitch button {
+
+      appearance: none;
+
+      border: 0;
+
+      margin: 0;
+      padding:
+        3px 5px;
+
+      background: transparent;
+
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.42
+        );
+
+      font: inherit;
+
+      cursor: pointer;
+    }
+
+
+    #languageSwitch button.active {
+
+      color: #fff;
+    }
+
+
+    #languageSwitch .separator {
+
+      padding:
+        3px 1px;
+
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.28
+        );
+
+      pointer-events: none;
+    }
+
+
+    .arrow {
+
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+
+      width: 96px;
+
+      z-index: 20;
+
+      padding: 0;
+      border: 0;
+
+      background: transparent;
+
+      color: #fff;
+
+      cursor: pointer;
+
+      opacity: 0.88;
+
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    .arrow svg {
+
+      width: 42px;
+      height: 42px;
+
+      display: block;
+
+      margin: 0 auto;
+
+      fill: none;
+
+      stroke: #fff;
+
+      stroke-width: 3.6;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      vector-effect: non-scaling-stroke;
+
+      filter:
+        drop-shadow(
+          0 1px 2px
+          rgba(0, 0, 0, 0.72)
+        );
+    }
+
+
+    .arrow:hover {
+      opacity: 1;
+    }
+
+
+    .arrow:active {
+      transform: scale(0.96);
+    }
+
+
+    #prev {
+      left: 0;
+    }
+
+
+    #next {
+      right: 0;
+    }
+
+
+    #searching {
+
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+
+      z-index: 100;
+
+      padding:
+        10px 14px;
+
+      background:
+        rgba(
+          0,
+          0,
+          0,
+          0.80
+        );
+
+      font-size: 11px;
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition:
+        opacity 0.25s ease;
+
+      white-space: nowrap;
+    }
+
+
+    #searching.visible {
+      opacity: 1;
+    }
+
+
+    @media (
+      max-width: 700px
+    ) {
+
+
+      #languageSwitch {
+
+        top: 18px;
+
+        padding:
+          4px 5px;
+
+        font-size: 8px;
+      }
+
+
+      #metadata {
+
+        top: 18px;
+        left: 0;
+
+        max-width: 94vw;
+
+        padding:
+          6px 12px
+          6px 18px;
+
+        font-size: 10px;
+      }
+
+
+      #caption {
+
+        left: 0;
+        bottom: 18px;
+
+        max-width: 94vw;
+
+        padding:
+          6px 12px
+          6px 18px;
+
+        font-size: 11px;
+      }
+
+
+
+      #projectInfo {
+
+        top: 18px;
+        right: 0;
+
+        width: 52vw;
+        max-width: 52vw;
+
+        padding:
+          6px 18px
+          6px 10px;
+
+        font-size: 8px;
+
+        line-height: 1.45;
+      }
+
+
+      #sourceInfo {
+        display: none;
+      }
+
+
+      .arrow {
+
+        width: 62px;
+      }
+
+
+      .arrow svg {
+
+        width: 34px;
+        height: 34px;
+
+        stroke-width: 3.5;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <main id="stage">
+
+
+    <img
+      id="image"
+      alt=""
+      decoding="async"
+      fetchpriority="high"
+    >
+
+
+    <div id="metadata">
+
+      <div id="borderLine"></div>
+
+      <div id="eventLine"></div>
+
+    </div>
+
+
+    <button
+      id="prev"
+      class="arrow"
+      aria-label="Previous image"
+    >
+      <svg
+        viewBox="0 0 48 48"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M30 10 L16 24 L30 38"></path>
+        <path d="M17 24 H39"></path>
+      </svg>
+    </button>
+
+
+    <button
+      id="next"
+      class="arrow"
+      aria-label="Next image"
+    >
+      <svg
+        viewBox="0 0 48 48"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M18 10 L32 24 L18 38"></path>
+        <path d="M9 24 H31"></path>
+      </svg>
+    </button>
+
+
+    <div id="caption">
+      <span id="captionText"></span>
+    </div>
+
+
+    <div id="sourceInfo"></div>
+
+
+
+    <div id="projectInfo"></div>
+
+
+    <div id="searching"></div>
+
+
+    <div
+      id="languageSwitch"
+      aria-label="Language"
+    >
+      <button
+        id="langEs"
+        type="button"
+        aria-label="Español"
+      >
+        ES
+      </button>
+
+      <span class="separator">/</span>
+
+      <button
+        id="langEn"
+        type="button"
+        aria-label="English"
+      >
+        EN
+      </button>
+    </div>
+
+
+  </main>
+
+
+  <script>
+
+    // ======================================================
+    // BORDER TRANSIT
+    //
+    // HYBRID CLIENT
+    //
+    // With live_server.py:
+    //   /api/bootstrap + /api/live-next
+    //
+    // Without Python API:
+    //   ./manifest.json
+    //   fallback ./pool.json
+    //
+    // IMPORTANT:
+    // Asset paths are made relative so the page works at:
+    //
+    // username.github.io/repository/
+    //
+    // as well as at a custom domain.
+    // ======================================================
+
+
+    const image =
+      document.getElementById(
+        "image"
+      );
+
+
+    const borderLine =
+      document.getElementById(
+        "borderLine"
+      );
+
+
+    const eventLine =
+      document.getElementById(
+        "eventLine"
+      );
+
+
+    const sourceInfo =
+      document.getElementById(
+        "sourceInfo"
+      );
+
+
+    const searching =
+      document.getElementById(
+        "searching"
+      );
+
+
+    const captionText =
+      document.getElementById(
+        "captionText"
+      );
+
+
+    const projectInfo =
+      document.getElementById(
+        "projectInfo"
+      );
+
+
+    const previousButton =
+      document.getElementById(
+        "prev"
+      );
+
+
+    const nextButton =
+      document.getElementById(
+        "next"
+      );
+
+
+    const langEsButton =
+      document.getElementById(
+        "langEs"
+      );
+
+
+    const langEnButton =
+      document.getElementById(
+        "langEn"
+      );
+
+
+
+    // ======================================================
+    // LANGUAGE / I18N
+    //
+    // Default:
+    // browser language.
+    //
+    // Manual ES / EN selection is stored locally.
+    //
+    // No translation service or API is used.
+    // Both texts live directly in this HTML.
+    // ======================================================
+
+    const TEXT = {
+
+      en: {
+
+        title: "People at the Threshold of Recognition",
+
+        description:
+          "People at the Threshold of Recognition captures images from border-transit cameras recorded without direct human decision. Human presence is algorithmically detected, and the images are subjected to technical operations that push their legibility and recognition toward collapse.",
+
+        border:
+          "BORDER",
+
+        event:
+          "EVENT",
+
+        source:
+          "SOURCE",
+
+        location:
+          "LOCATION",
+
+        operation:
+          "OPERATION",
+
+        apparatus:
+          "APPARATUS",
+
+        undocumentedBorder:
+          "UNDOCUMENTED BORDER",
+
+        loading:
+          "LOADING",
+
+        processing:
+          "PROCESSING IMAGE / APPLYING OPERATION",
+
+        apparatusTrail:
+          "MOTION-TRIGGERED UNATTENDED TRAIL CAMERA",
+
+        apparatusAutonomousTower:
+          "AUTONOMOUS SURVEILLANCE TOWER / MACHINE VISION",
+
+        apparatusThermalAerial:
+          "THERMAL / INFRARED AERIAL SURVEILLANCE SYSTEM",
+
+        apparatusThermal:
+          "THERMAL / INFRARED REMOTE SURVEILLANCE SYSTEM",
+
+        apparatusAerial:
+          "DRONE / AERIAL REMOTE IMAGING SYSTEM",
+
+        apparatusBodycam:
+          "BODY-WORN CONTINUOUS VIDEO CAMERA",
+
+        apparatusFixed:
+          "FIXED / REMOTE SURVEILLANCE CAMERA",
+
+        apparatusMaritime:
+          "MARITIME OPERATIONAL SURVEILLANCE SYSTEM",
+
+        apparatusPassive:
+          "PASSIVE / CONTINUOUS SENSOR-BASED CAPTURE SYSTEM",
+
+        apparatusInferred:
+          "REMOTE / CONTINUOUS CAPTURE SYSTEM (INFERRED)",
+
+        error:
+          "ERROR",
+
+        noImage:
+          "NO IMAGE AVAILABLE",
+
+        noItems:
+          "NO DISPLAYABLE IMAGES",
+
+        previous:
+          "Previous image",
+
+        next:
+          "Next image",
+
+        imageAlt:
+          "Border transit image",
+
+        language:
+          "Language"
+      },
+
+
+      es: {
+
+        title: "Personas en el umbral del reconocimiento",
+
+        description:
+          "Personas en el umbral del reconocimiento, captura imágenes de cámaras de tránsito fronterizo registradas sin decisión humana directa. La presencia humana es detectada algorítmicamente y las imágenes son sometidas a operaciones técnicas que llevan su legibilidad y reconocimiento hacia el colapso.",
+
+        border:
+          "FRONTERA",
+
+        event:
+          "EVENTO",
+
+        source:
+          "FUENTE",
+
+        location:
+          "UBICACIÓN",
+
+        operation:
+          "OPERACIÓN",
+
+        apparatus:
+          "APARATO",
+
+        undocumentedBorder:
+          "FRONTERA NO DOCUMENTADA",
+
+        loading:
+          "CARGANDO",
+
+        processing:
+          "PROCESANDO IMAGEN / APLICANDO OPERACIÓN",
+
+        apparatusTrail:
+          "CÁMARA DE RASTRO AUTÓNOMA ACTIVADA POR MOVIMIENTO",
+
+        apparatusAutonomousTower:
+          "TORRE DE VIGILANCIA AUTÓNOMA / VISIÓN DE MÁQUINA",
+
+        apparatusThermalAerial:
+          "SISTEMA AÉREO DE VIGILANCIA TÉRMICA / INFRARROJA",
+
+        apparatusThermal:
+          "SISTEMA REMOTO DE VIGILANCIA TÉRMICA / INFRARROJA",
+
+        apparatusAerial:
+          "SISTEMA REMOTO DE IMAGEN AÉREA / DRON",
+
+        apparatusBodycam:
+          "CÁMARA CORPORAL DE REGISTRO CONTINUO",
+
+        apparatusFixed:
+          "CÁMARA FIJA / REMOTA DE VIGILANCIA",
+
+        apparatusMaritime:
+          "SISTEMA OPERATIVO DE VIGILANCIA MARÍTIMA",
+
+        apparatusPassive:
+          "SISTEMA PASIVO / CONTINUO DE CAPTURA POR SENSOR",
+
+        apparatusInferred:
+          "SISTEMA REMOTO / CONTINUO DE CAPTURA (INFERIDO)",
+
+        error:
+          "ERROR",
+
+        noImage:
+          "NO HAY IMAGEN DISPONIBLE",
+
+        noItems:
+          "NO HAY IMÁGENES DISPONIBLES",
+
+        previous:
+          "Imagen anterior",
+
+        next:
+          "Imagen siguiente",
+
+        imageAlt:
+          "Imagen de tránsito fronterizo",
+
+        language:
+          "Idioma"
+      }
+
+    };
+
+
+    function detectLanguage() {
+
+      const saved =
+        localStorage.getItem(
+          "ptr_language"
+        );
+
+
+      if (
+        saved === "es"
+        ||
+        saved === "en"
+      ) {
+
+        return saved;
+      }
+
+
+      const languages =
+
+        Array.isArray(
+          navigator.languages
+        )
+        &&
+        navigator.languages.length > 0
+
+        ?
+
+        navigator.languages
+
+        :
+
+        [
+          navigator.language
+          ||
+          "en"
+        ];
+
+
+      const spanish =
+        languages.some(
+
+          value =>
+
+            String(
+              value
+            )
+            .toLowerCase()
+            .startsWith(
+              "es"
+            )
+
+        );
+
+
+      return spanish
+        ?
+        "es"
+        :
+        "en";
+    }
+
+
+    let currentLanguage =
+      detectLanguage();
+
+
+    function t(key) {
+
+      return (
+        TEXT[currentLanguage][key]
+        ??
+        TEXT.en[key]
+        ??
+        key
+      );
+    }
+
+
+    function updateLanguageButtons() {
+
+      langEsButton.classList.toggle(
+        "active",
+        currentLanguage === "es"
+      );
+
+
+      langEnButton.classList.toggle(
+        "active",
+        currentLanguage === "en"
+      );
+    }
+
+
+    function applyLanguage(
+      language,
+      saveChoice = false
+    ) {
+
+      currentLanguage =
+        language === "es"
+        ?
+        "es"
+        :
+        "en";
+
+
+      if (saveChoice) {
+
+        localStorage.setItem(
+          "ptr_language",
+          currentLanguage
+        );
+      }
+
+
+      document.documentElement.lang =
+        currentLanguage;
+
+
+      document.title =
+        t(
+          "title"
+        );
+
+
+      captionText.textContent =
+        t(
+          "title"
+        );
+
+
+      projectInfo.textContent =
+        t(
+          "description"
+        );
+
+
+      previousButton.setAttribute(
+        "aria-label",
+        t(
+          "previous"
+        )
+      );
+
+
+      nextButton.setAttribute(
+        "aria-label",
+        t(
+          "next"
+        )
+      );
+
+
+      image.alt =
+        t(
+          "imageAlt"
+        );
+
+
+      document
+        .getElementById(
+          "languageSwitch"
+        )
+        .setAttribute(
+          "aria-label",
+          t(
+            "language"
+          )
+        );
+
+
+      updateLanguageButtons();
+
+
+      if (
+        searching.classList.contains(
+          "visible"
+        )
+      ) {
+
+        searching.textContent =
+          t(
+            searchingState
+          );
+      }
+
+
+      // Re-render current metadata labels immediately.
+
+      if (
+        historyIndex >= 0
+        &&
+        history[
+          historyIndex
+        ]
+      ) {
+
+        showItem(
+          history[
+            historyIndex
+          ]
+        );
+      }
+    }
+
+
+    langEsButton.addEventListener(
+
+      "click",
+
+      () => {
+
+        applyLanguage(
+          "es",
+          true
+        );
+      }
+
+    );
+
+
+    langEnButton.addEventListener(
+
+      "click",
+
+      () => {
+
+        applyLanguage(
+          "en",
+          true
+        );
+      }
+
+    );
+
+
+    // ======================================================
+    // CONFIG
+    // ======================================================
+
+    const PRELOAD_AHEAD = 4;
+
+    const SHUFFLE_ON_START = true;
+
+    // Cada 3 avances, si ya existe una transformación LIVE
+    // preparada, se inserta entre las pre-renderizadas.
+    const LIVE_EVERY = 3;
+
+    const LIVE_CLIENT_TARGET = 2;
+
+
+    // ======================================================
+    // STATE
+    // ======================================================
+
+    let items = [];
+
+    let deck = [];
+
+    let deckIndex = 0;
+
+    let history = [];
+
+    let historyIndex = -1;
+
+    let liveMode = false;
+
+    let liveItems = [];
+
+    let liveRequestRunning = false;
+
+    let liveSequence = 0;
+
+    let forwardSequence = 0;
+
+    // ------------------------------------------------------
+    // Visible-source cycle.
+    //
+    // A source image cannot be selected again until every
+    // source in the current archive has appeared once.
+    //
+    // LIVE results inherit the original pool ID, therefore
+    // a static render and a new LIVE transformation of the
+    // same source count as the same source for repetition.
+    // ------------------------------------------------------
+
+    let totalUniqueSources = 0;
+
+    const shownSourceKeys =
+      new Set();
+
+    let lastShownSourceKey = null;
+
+    let searchingState =
+      "loading";
+
+    const preloadCache =
+      new Map();
+
+
+    // ======================================================
+    // HELPERS
+    // ======================================================
+
+    function safe(value) {
+
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+
+        return null;
+      }
+
+
+      return String(
+        value
+      );
+    }
+
+
+    function shuffle(array) {
+
+      const copy =
+        [...array];
+
+
+      for (
+        let i = copy.length - 1;
+        i > 0;
+        i -= 1
+      ) {
+
+        const j =
+          Math.floor(
+            Math.random()
+            *
+            (i + 1)
+          );
+
+
+        [
+          copy[i],
+          copy[j]
+        ]
+        =
+        [
+          copy[j],
+          copy[i]
+        ];
+      }
+
+
+      return copy;
+    }
+
+
+    // ======================================================
+    // SOURCE IDENTITY / NO-REPEAT CYCLE
+    // ======================================================
+
+    function sourceKey(item) {
+
+      if (!item) {
+        return null;
+      }
+
+
+      const value =
+
+        item.id
+        ??
+        item.pool_id
+        ??
+        item.original
+        ??
+        item.original_file
+        ??
+        item.source_id
+        ??
+        item.source_filename
+        ??
+        item.file
+        ??
+        item.filename
+        ??
+        item.rendered_file;
+
+
+      return safe(
+        value
+      );
+    }
+
+
+    function rebuildCycleDeck() {
+
+      const remaining =
+        items.filter(
+          item => {
+
+            const key =
+              sourceKey(
+                item
+              );
+
+
+            return (
+              key
+              &&
+              !shownSourceKeys.has(
+                key
+              )
+            );
+          }
+        );
+
+
+      deck =
+
+        SHUFFLE_ON_START
+
+        ?
+
+        shuffle(
+          remaining
+        )
+
+        :
+
+        [...remaining];
+
+
+      deckIndex = 0;
+
+
+      // Cuando comienza un ciclo nuevo,
+      // evita que la primera fuente sea la misma
+      // que cerró el ciclo anterior.
+
+      if (
+        deck.length > 1
+        &&
+        lastShownSourceKey
+        &&
+        sourceKey(
+          deck[0]
+        )
+        ===
+        lastShownSourceKey
+      ) {
+
+        [
+          deck[0],
+          deck[1]
+        ]
+        =
+        [
+          deck[1],
+          deck[0]
+        ];
+      }
+    }
+
+
+    function configureSourceCycle() {
+
+      const keys =
+        items
+        .map(
+          sourceKey
+        )
+        .filter(
+          Boolean
+        );
+
+
+      totalUniqueSources =
+        new Set(
+          keys
+        ).size;
+
+
+      shownSourceKeys.clear();
+
+      lastShownSourceKey =
+        null;
+
+
+      rebuildCycleDeck();
+    }
+
+
+    function prepareNewCycleIfNeeded() {
+
+      if (
+        totalUniqueSources > 0
+        &&
+        shownSourceKeys.size
+        >=
+        totalUniqueSources
+      ) {
+
+        shownSourceKeys.clear();
+
+
+        rebuildCycleDeck();
+
+
+        console.log(
+          "SOURCE CYCLE / complete — reshuffled"
+        );
+      }
+    }
+
+
+    function sourceAlreadyShown(item) {
+
+      const key =
+        sourceKey(
+          item
+        );
+
+
+      return (
+        key
+        &&
+        shownSourceKeys.has(
+          key
+        )
+      );
+    }
+
+
+    function markSourceShown(item) {
+
+      const key =
+        sourceKey(
+          item
+        );
+
+
+      if (!key) {
+        return;
+      }
+
+
+      shownSourceKeys.add(
+        key
+      );
+
+
+      lastShownSourceKey =
+        key;
+    }
+
+
+    function showSearching(state) {
+
+      searchingState =
+        state
+        ||
+        "loading";
+
+
+      searching.textContent =
+        t(
+          searchingState
+        );
+
+
+      searching.classList.add(
+        "visible"
+      );
+    }
+
+
+    function hideSearching() {
+
+      searching.classList.remove(
+        "visible"
+      );
+    }
+
+
+    // ======================================================
+    // PATH NORMALIZATION
+    //
+    // "/rendered/0001.webp"
+    // becomes
+    // "./rendered/0001.webp"
+    //
+    // This is important on GitHub project Pages.
+    // ======================================================
+
+    function relativeAssetPath(value) {
+
+      const path =
+        safe(value);
+
+
+      if (!path) {
+        return null;
+      }
+
+
+      if (
+        path.startsWith(
+          "http://"
+        )
+        ||
+        path.startsWith(
+          "https://"
+        )
+        ||
+        path.startsWith(
+          "data:"
+        )
+        ||
+        path.startsWith(
+          "blob:"
+        )
+      ) {
+
+        return path;
+      }
+
+
+      const clean =
+        path
+        .replace(
+          /^\.?\//,
+          ""
+        );
+
+
+      return (
+        "./"
+        +
+        clean
+      );
+    }
+
+
+    function getRenderedFile(item) {
+
+      const direct =
+
+        safe(
+          item.rendered_file
+        )
+
+        ||
+
+        safe(
+          item.rendered
+        )
+
+        ||
+
+        safe(
+          item.web_file
+        )
+
+        ||
+
+        safe(
+          item.display_file
+        );
+
+
+      if (direct) {
+
+        return relativeAssetPath(
+          direct
+        );
+      }
+
+
+      // Fallback when manifest stores only filename/id.
+
+      const filename =
+
+        safe(
+          item.filename
+        )
+
+        ||
+
+        safe(
+          item.original_filename
+        );
+
+
+      if (filename) {
+
+        const stem =
+          filename.replace(
+            /\.[^.]+$/,
+            ""
+          );
+
+
+        return (
+          "./rendered/"
+          +
+          stem
+          +
+          ".webp"
+        );
+      }
+
+
+      const id =
+
+        safe(
+          item.id
+        )
+
+        ||
+
+        safe(
+          item.pool_id
+        );
+
+
+      if (id) {
+
+        const numeric =
+          String(id).padStart(
+            4,
+            "0"
+          );
+
+
+        return (
+          "./rendered/"
+          +
+          numeric
+          +
+          ".webp"
+        );
+      }
+
+
+      return null;
+    }
+
+
+    // ======================================================
+    // BORDER
+    // ======================================================
+
+    function getBorder(item) {
+
+      const from =
+        safe(
+          item.from_country
+          ||
+          item.from
+        );
+
+
+      const to =
+        safe(
+          item.to_country
+          ||
+          item.to
+        );
+
+
+      if (
+        item.route_documented
+        ===
+        true
+        &&
+        from
+        &&
+        to
+      ) {
+
+        return (
+          from
+          +
+          " → "
+          +
+          to
+        );
+      }
+
+
+      return (
+
+        safe(
+          item.border
+        )
+
+        ||
+
+        safe(
+          item.border_hint
+        )
+
+        ||
+
+        safe(
+          item.route_name
+        )
+
+        ||
+
+        t("undocumentedBorder")
+
+      );
+    }
+
+
+    // ======================================================
+    // EVENT
+    // ======================================================
+
+    function getEvent(item) {
+
+      const date =
+        safe(
+          item.event_date
+          ||
+          item.date
+        );
+
+
+      const time =
+        safe(
+          item.event_time_local
+        );
+
+
+      if (
+        date
+        &&
+        time
+      ) {
+
+        return (
+          date
+          +
+          " · "
+          +
+          time.slice(
+            0,
+            5
+          )
+        );
+      }
+
+
+      return date;
+    }
+
+
+    // ======================================================
+    // SOURCE / OPERATION
+    // ======================================================
+
+    function getApparatus(item) {
+
+      const raw = [];
+
+
+      if (
+        Array.isArray(
+          item.documented_devices
+        )
+      ) {
+
+        raw.push(
+          ...item.documented_devices
+        );
+      }
+
+
+      [
+        item.apparatus,
+        item.image_device,
+        item.device,
+        item.camera_model,
+        item.capture_regime,
+        item.capture_medium,
+        item.origin
+      ]
+      .forEach(
+        value => {
+
+          const clean =
+            safe(
+              value
+            );
+
+
+          if (clean) {
+
+            raw.push(
+              clean
+            );
+          }
+        }
+      );
+
+
+      const text =
+        raw
+        .join(
+          " | "
+        )
+        .toLowerCase();
+
+
+      // ====================================================
+      // Aparatos claramente compatibles con captura
+      // automática, pasiva, continua o remota.
+      // ====================================================
+
+      if (
+        /trail camera|game camera|motion.?trigger/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusTrail"
+        );
+      }
+
+
+      if (
+        /autonomous|lattice|surveillance tower|computer vision|machine vision/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusAutonomousTower"
+        );
+      }
+
+
+      if (
+        /thermal|infrared|midwave infrared/.test(
+          text
+        )
+        &&
+        /drone|aerial|aircraft/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusThermalAerial"
+        );
+      }
+
+
+      if (
+        /thermal|infrared|midwave infrared/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusThermal"
+        );
+      }
+
+
+      if (
+        /drone|aerial|aircraft/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusAerial"
+        );
+      }
+
+
+      if (
+        /body.?worn|bodycam/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusBodycam"
+        );
+      }
+
+
+      if (
+        /cctv|security camera|fixed surveillance|surveillance camera|fixed camera|remote surveillance/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusFixed"
+        );
+      }
+
+
+      if (
+        /maritime|coast guard|cutter|interception|vessel/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusMaritime"
+        );
+      }
+
+
+      if (
+        /passive|continuous|sensor|unattended|automatic/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusPassive"
+        );
+      }
+
+
+      // ====================================================
+      // Si la metadata del aparato viene de una lógica
+      // periodística — press / news / still photography —
+      // NO se muestra eso como apparatus.
+      //
+      // La fuente periodística sigue apareciendo en SOURCE.
+      // APPARATUS describe aquí el régimen de captura.
+      // ====================================================
+
+      if (
+        /press|news|journal|photograph|photography|still camera|digital still/.test(
+          text
+        )
+      ) {
+
+        return t(
+          "apparatusInferred"
+        );
+      }
+
+
+      // Si hay una descripción técnica útil que no sea
+      // periodística, conservarla.
+
+      const technical =
+        raw.filter(
+          value => {
+
+            return !(
+              /press|news|journal|photograph|photography|still camera|digital still/i
+              .test(
+                String(
+                  value
+                )
+              )
+            );
+          }
+        );
+
+
+      if (
+        technical.length > 0
+      ) {
+
+        return technical.join(
+          " + "
+        );
+      }
+
+
+      // Último fallback: no inventa marca ni modelo.
+      // Se explicita que es una inferencia de régimen.
+
+      return t(
+        "apparatusInferred"
+      );
+    }
+
+
+    function getSourceInfo(item) {
+
+      const lines = [];
+
+
+      const institution =
+        safe(
+          item.institution
+          ||
+          item.publisher
+          ||
+          item.source
+        );
+
+
+      const location =
+        safe(
+          item.location
+        );
+
+
+      const apparatus =
+        getApparatus(
+          item
+        );
+
+
+      if (institution) {
+
+        lines.push(
+          t("source")
+          +
+          " / "
+          +
+          institution
+        );
+      }
+
+
+      if (location) {
+
+        lines.push(
+          t("location")
+          +
+          " / "
+          +
+          location
+        );
+      }
+
+
+      // Deliberadamente NO mostramos:
+      //
+      // OPERATION
+      // TRANSFORMATION
+      // operation_names
+      // live_operations
+      //
+      // La transformación queda invisible en la interfaz.
+
+
+      if (apparatus) {
+
+        lines.push(
+          t("apparatus")
+          +
+          " / "
+          +
+          apparatus
+        );
+      }
+
+
+      return lines.join(
+        "<br>"
+      );
+    }
+
+
+    // ======================================================
+    // NORMALIZE MANIFEST ITEM
+    // ======================================================
+
+    function normalizeItem(item) {
+
+      const renderedFile =
+        getRenderedFile(
+          item
+        );
+
+
+      if (!renderedFile) {
+        return null;
+      }
+
+
+      return {
+        ...item,
+
+        rendered_file:
+          renderedFile
+      };
+    }
+
+
+    // ======================================================
+    // SHOW
+    // ======================================================
+
+    function showItem(item) {
+
+      image.src =
+        item.rendered_file;
+
+
+      const focusX =
+        item.focus_x
+        ??
+        50;
+
+
+      const focusY =
+        item.focus_y
+        ??
+        50;
+
+
+      image.style.objectPosition =
+
+        focusX
+        +
+        "% "
+        +
+        focusY
+        +
+        "%";
+
+
+      borderLine.innerHTML =
+
+        '<span class="label">'
+        +
+        t("border")
+        +
+        ' / '
+        +
+        '</span>'
+        +
+        getBorder(
+          item
+        );
+
+
+      const event =
+        getEvent(
+          item
+        );
+
+
+      if (event) {
+
+        eventLine.innerHTML =
+
+          '<span class="label">'
+          +
+          t("event")
+          +
+          ' / '
+          +
+          '</span>'
+          +
+          event;
+      }
+
+      else {
+
+        eventLine.innerHTML =
+          "";
+      }
+
+
+      sourceInfo.innerHTML =
+        getSourceInfo(
+          item
+        );
+    }
+
+
+    // ======================================================
+    // PRELOAD
+    // ======================================================
+
+    function preloadUrl(url) {
+
+      if (
+        !url
+        ||
+        preloadCache.has(
+          url
+        )
+      ) {
+
+        return;
+      }
+
+
+      const preload =
+        new Image();
+
+
+      preload.decoding =
+        "async";
+
+
+      preload.src =
+        url;
+
+
+      preloadCache.set(
+        url,
+        preload
+      );
+    }
+
+
+    function preloadNext() {
+
+      if (
+        deck.length === 0
+      ) {
+
+        return;
+      }
+
+
+      for (
+        let offset = 0;
+        offset < PRELOAD_AHEAD;
+        offset += 1
+      ) {
+
+        const index =
+          (
+            deckIndex
+            +
+            offset
+          )
+          %
+          deck.length;
+
+
+        const item =
+          deck[
+            index
+          ];
+
+
+        if (item) {
+
+          preloadUrl(
+            item.rendered_file
+          );
+        }
+      }
+    }
+
+
+    // ======================================================
+    // MANIFEST PARSING
+    // ======================================================
+
+    function extractItems(data) {
+
+      if (
+        Array.isArray(
+          data
+        )
+      ) {
+
+        return data;
+      }
+
+
+      if (
+        data
+        &&
+        Array.isArray(
+          data.items
+        )
+      ) {
+
+        return data.items;
+      }
+
+
+      if (
+        data
+        &&
+        Array.isArray(
+          data.images
+        )
+      ) {
+
+        return data.images;
+      }
+
+
+      if (
+        data
+        &&
+        Array.isArray(
+          data.pool
+        )
+      ) {
+
+        return data.pool;
+      }
+
+
+      if (
+        data
+        &&
+        Array.isArray(
+          data.candidates
+        )
+      ) {
+
+        return data.candidates;
+      }
+
+
+      return [];
+    }
+
+
+    // ======================================================
+    // LOAD STATIC DATA
+    // ======================================================
+
+    async function loadJson(url) {
+
+      const response =
+        await fetch(
+          url,
+          {
+            cache:
+              "no-store"
+          }
+        );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          url
+          +
+          " / "
+          +
+          response.status
+        );
+      }
+
+
+      return response.json();
+    }
+
+
+    async function loadArchive() {
+
+      let data = null;
+
+
+      // Preferred public web manifest.
+
+      try {
+
+        data =
+          await loadJson(
+            "./manifest.json"
+          );
+      }
+
+      catch (manifestError) {
+
+        console.warn(
+          "manifest.json unavailable; trying pool.json",
+          manifestError
+        );
+
+
+        data =
+          await loadJson(
+            "./pool.json"
+          );
+      }
+
+
+      const rawItems =
+        extractItems(
+          data
+        );
+
+
+      items =
+        rawItems
+        .map(
+          normalizeItem
+        )
+        .filter(
+          Boolean
+        );
+
+
+      if (
+        items.length === 0
+      ) {
+
+        throw new Error(
+          t(
+            "noItems"
+          )
+        );
+      }
+
+
+      configureSourceCycle();
+    }
+
+
+    // ======================================================
+    // HYBRID MODE
+    //
+    // Local + live_server.py:
+    //   /api/bootstrap
+    //   /api/live-next
+    //
+    // GitHub Pages / normal static server:
+    //   falls back to manifest.json
+    // ======================================================
+
+    function setupDeckFromData(data) {
+
+      const rawItems =
+        extractItems(
+          data
+        );
+
+
+      items =
+        rawItems
+        .map(
+          normalizeItem
+        )
+        .filter(
+          Boolean
+        );
+
+
+      if (
+        items.length === 0
+      ) {
+
+        throw new Error(
+          t(
+            "noItems"
+          )
+        );
+      }
+
+
+      configureSourceCycle();
+    }
+
+
+    async function loadBootstrapOrArchive() {
+
+      try {
+
+        const response =
+          await fetch(
+            "/api/bootstrap",
+            {
+              cache:
+                "no-store"
+            }
+          );
+
+
+        const data =
+          await response.json();
+
+
+        if (
+          !response.ok
+          ||
+          !data.ok
+        ) {
+
+          throw new Error(
+            "Live bootstrap unavailable"
+          );
+        }
+
+
+        setupDeckFromData(
+          data
+        );
+
+
+        liveMode = true;
+
+
+        console.log(
+          "LIVE MODE / enabled"
+        );
+
+
+        return;
+      }
+
+
+      catch (error) {
+
+        liveMode = false;
+
+
+        console.log(
+          "STATIC MODE / manifest.json"
+        );
+
+
+        await loadArchive();
+      }
+    }
+
+
+    function cacheBustLiveUrl(url) {
+
+      liveSequence += 1;
+
+
+      return (
+        url
+        +
+        (
+          url.includes("?")
+          ?
+          "&"
+          :
+          "?"
+        )
+        +
+        "live="
+        +
+        Date.now()
+        +
+        "_"
+        +
+        liveSequence
+      );
+    }
+
+
+    async function preloadLiveItem(item) {
+
+      return new Promise(
+        resolve => {
+
+          const preload =
+            new Image();
+
+
+          preload.decoding =
+            "async";
+
+
+          preload.onload =
+            () => resolve(
+              true
+            );
+
+
+          preload.onerror =
+            () => resolve(
+              false
+            );
+
+
+          preload.src =
+            item.rendered_file;
+        }
+      );
+    }
+
+
+    async function requestLiveImage() {
+
+      if (!liveMode) {
+
+        return false;
+      }
+
+
+      const response =
+        await fetch(
+          "/api/live-next",
+          {
+            cache:
+              "no-store"
+          }
+        );
+
+
+      const data =
+        await response.json();
+
+
+      if (
+        !response.ok
+        ||
+        !data.ok
+        ||
+        !data.ready
+        ||
+        !data.item
+      ) {
+
+        return false;
+      }
+
+
+      const item =
+        normalizeItem(
+          data.item
+        );
+
+
+      if (!item) {
+
+        return false;
+      }
+
+
+      // El servidor puede reutilizar un filename.
+      // La query obliga al navegador a leer la versión nueva.
+      item.rendered_file =
+        cacheBustLiveUrl(
+          item.rendered_file
+        );
+
+
+      item._live =
+        true;
+
+
+      await preloadLiveItem(
+        item
+      );
+
+
+      liveItems.push(
+        item
+      );
+
+
+      return true;
+    }
+
+
+    async function fillLiveBuffer() {
+
+      if (
+        !liveMode
+        ||
+        liveRequestRunning
+      ) {
+
+        return;
+      }
+
+
+      liveRequestRunning =
+        true;
+
+
+      try {
+
+        while (
+          liveItems.length
+          <
+          LIVE_CLIENT_TARGET
+        ) {
+
+          const gotOne =
+            await requestLiveImage();
+
+
+          if (!gotOne) {
+
+            break;
+          }
+        }
+      }
+
+
+      catch (error) {
+
+        console.warn(
+          "Live transform not ready",
+          error
+        );
+      }
+
+
+      finally {
+
+        liveRequestRunning =
+          false;
+      }
+
+
+      if (
+        liveMode
+        &&
+        liveItems.length
+        <
+        LIVE_CLIENT_TARGET
+      ) {
+
+        setTimeout(
+          fillLiveBuffer,
+          700
+        );
+      }
+    }
+
+
+    function takeUnshownLiveItem() {
+
+      while (
+        liveItems.length > 0
+      ) {
+
+        const candidate =
+          liveItems.shift();
+
+
+        if (
+          sourceAlreadyShown(
+            candidate
+          )
+        ) {
+
+          continue;
+        }
+
+
+        return candidate;
+      }
+
+
+      return null;
+    }
+
+
+    function wantsLiveOnThisStep() {
+
+      return (
+        liveMode
+        &&
+        forwardSequence
+        %
+        LIVE_EVERY
+        ===
+        0
+      );
+    }
+
+
+    function takeDisplayItem() {
+
+      prepareNewCycleIfNeeded();
+
+
+      forwardSequence += 1;
+
+
+      if (
+        wantsLiveOnThisStep()
+      ) {
+
+        const live =
+          takeUnshownLiveItem();
+
+
+        if (live) {
+
+          fillLiveBuffer();
+
+          return live;
+        }
+
+
+        // Null means:
+        // this slot wants a LIVE result, but it is not ready.
+        // next() will briefly wait and show the processing text.
+
+        return null;
+      }
+
+
+      return takeNextItem();
+    }
+
+
+    async function waitForUnshownLive(
+      maxWaitMs = 5000
+    ) {
+
+      if (!liveMode) {
+        return null;
+      }
+
+
+      showSearching(
+        "processing"
+      );
+
+
+      const started =
+        Date.now();
+
+
+      try {
+
+        while (
+          Date.now()
+          -
+          started
+          <
+          maxWaitMs
+        ) {
+
+          let candidate =
+            takeUnshownLiveItem();
+
+
+          if (candidate) {
+
+            return candidate;
+          }
+
+
+          await requestLiveImage();
+
+
+          candidate =
+            takeUnshownLiveItem();
+
+
+          if (candidate) {
+
+            return candidate;
+          }
+
+
+          await new Promise(
+            resolve =>
+              setTimeout(
+                resolve,
+                450
+              )
+          );
+        }
+
+
+        return null;
+      }
+
+
+      finally {
+
+        hideSearching();
+      }
+    }
+
+
+    // ======================================================
+    // TAKE NEXT ITEM
+    // ======================================================
+
+    function takeNextItem() {
+
+      prepareNewCycleIfNeeded();
+
+
+      while (true) {
+
+        if (
+          deckIndex
+          >=
+          deck.length
+        ) {
+
+          rebuildCycleDeck();
+
+
+          if (
+            deck.length === 0
+          ) {
+
+            return null;
+          }
+        }
+
+
+        const item =
+          deck[
+            deckIndex
+          ];
+
+
+        deckIndex += 1;
+
+
+        if (
+          sourceAlreadyShown(
+            item
+          )
+        ) {
+
+          continue;
+        }
+
+
+        return item;
+      }
+    }
+
+
+    // ======================================================
+    // NEXT
+    // ======================================================
+
+    async function next() {
+
+      // Walk forward through browser history first.
+      // Revisiting history is intentionally allowed.
+
+      if (
+        historyIndex
+        <
+        history.length - 1
+      ) {
+
+        historyIndex += 1;
+
+
+        showItem(
+          history[
+            historyIndex
+          ]
+        );
+
+
+        preloadNext();
+
+
+        return;
+      }
+
+
+      let item =
+        takeDisplayItem();
+
+
+      // Every LIVE slot waits briefly if the operation
+      // is still being rendered. During that wait the
+      // bilingual processing message is visible.
+
+      if (
+        !item
+        &&
+        wantsLiveOnThisStep()
+      ) {
+
+        item =
+          await waitForUnshownLive(
+            5000
+          );
+      }
+
+
+      // If LIVE still is not ready after the short wait,
+      // continue with an unseen pre-rendered source.
+      // This avoids freezing navigation.
+
+      if (!item) {
+
+        item =
+          takeNextItem();
+      }
+
+
+      if (!item) {
+
+        return;
+      }
+
+
+      markSourceShown(
+        item
+      );
+
+
+      history.push(
+        item
+      );
+
+
+      historyIndex =
+        history.length - 1;
+
+
+      showItem(
+        item
+      );
+
+
+      preloadNext();
+
+
+      // Keep producing new transformations while viewing.
+      fillLiveBuffer();
+    }
+
+
+    // ======================================================
+    // PREVIOUS
+    // ======================================================
+
+    function previous() {
+
+      if (
+        historyIndex <= 0
+      ) {
+
+        return;
+      }
+
+
+      historyIndex -= 1;
+
+
+      showItem(
+        history[
+          historyIndex
+        ]
+      );
+
+
+      preloadNext();
+    }
+
+
+    // ======================================================
+    // CONTROLS
+    // ======================================================
+
+    document
+      .getElementById(
+        "next"
+      )
+      .addEventListener(
+        "click",
+        next
+      );
+
+
+    document
+      .getElementById(
+        "prev"
+      )
+      .addEventListener(
+        "click",
+        previous
+      );
+
+
+    document.addEventListener(
+
+      "keydown",
+
+      function(event) {
+
+        if (
+          event.key
+          ===
+          "ArrowRight"
+        ) {
+
+          next();
+        }
+
+
+        if (
+          event.key
+          ===
+          "ArrowLeft"
+        ) {
+
+          previous();
+        }
+      }
+
+    );
+
+
+    // ======================================================
+    // TOUCH / SWIPE
+    // ======================================================
+
+    let touchStartX =
+      null;
+
+
+    document.addEventListener(
+
+      "touchstart",
+
+      function(event) {
+
+        if (
+          event.touches.length
+          ===
+          1
+        ) {
+
+          touchStartX =
+            event.touches[0].clientX;
+        }
+      },
+
+      {
+        passive:
+          true
+      }
+
+    );
+
+
+    document.addEventListener(
+
+      "touchend",
+
+      function(event) {
+
+        if (
+          touchStartX
+          ===
+          null
+          ||
+          event.changedTouches.length
+          !==
+          1
+        ) {
+
+          return;
+        }
+
+
+        const endX =
+          event.changedTouches[0].clientX;
+
+
+        const delta =
+          endX
+          -
+          touchStartX;
+
+
+        touchStartX =
+          null;
+
+
+        if (
+          Math.abs(
+            delta
+          )
+          <
+          45
+        ) {
+
+          return;
+        }
+
+
+        if (
+          delta < 0
+        ) {
+
+          next();
+        }
+
+        else {
+
+          previous();
+        }
+      },
+
+      {
+        passive:
+          true
+      }
+
+    );
+
+
+    // ======================================================
+    // START
+    // ======================================================
+
+    async function start() {
+
+      applyLanguage(
+        currentLanguage,
+        false
+      );
+
+
+      showSearching(
+        "loading"
+      );
+
+
+      try {
+
+        await loadBootstrapOrArchive();
+
+
+        const first =
+          takeNextItem();
+
+
+        if (!first) {
+
+          throw new Error(
+            t(
+              "noImage"
+            )
+          );
+        }
+
+
+        // Preload first image and immediate future images.
+
+        preloadUrl(
+          first.rendered_file
+        );
+
+
+        preloadNext();
+
+
+        markSourceShown(
+          first
+        );
+
+
+        history.push(
+          first
+        );
+
+
+        historyIndex = 0;
+
+
+        showItem(
+          first
+        );
+
+
+        hideSearching();
+
+
+        // Arranca el trabajo LIVE después de mostrar
+        // inmediatamente una imagen ya renderizada.
+        fillLiveBuffer();
+      }
+
+
+      catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        searchingState =
+          "error";
+
+
+        searching.textContent =
+          t(
+            "error"
+          )
+          +
+          " / "
+          +
+          error.message;
+
+
+        searching.classList.add(
+          "visible"
+        );
+      }
+    }
+
+
+    start();
+
+  </script>
+
+</body>
+
+</html>

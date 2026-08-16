@@ -1,0 +1,73 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C0029.webp",
+  "id": "0122",
+  "original": "originals/0122.webp",
+  "original_file": "originals/0122.webp",
+  "border": "Greece–North Macedonia",
+  "people_count": 4,
+  "hunter_score": 81.31,
+  "metadata_recovery_source": "camera_hunter_v2 console log",
+  "score": 81.31,
+  "grade": "STRONG",
+  "origin_kind": "direct_image_search",
+  "title": "Richard Mosse’s “Heat Maps”: A Military-Grade Camera Repurposed on the ...",
+  "source_url": "https://www.newyorker.com/culture/photo-booth/richard-mosses-heat-maps-a-military-grade-camera-repurposed-on-the-migrant-trail",
+  "image_url": "https://media.newyorker.com/photos/59097de68b51cf59fc424139/16:9/w_1280,c_limit/Idomeni-detail-01-1.jpg",
+  "border_hint": "Libya–Italy maritime",
+  "countries": [
+    "Libya",
+    "Italy"
+  ],
+  "capture_family_search": "thermal",
+  "capture_regime": "thermal_or_infrared_surveillance",
+  "intentional_still_capture": false,
+  "capture_hits": [
+    "thermal camera",
+    "thermal footage",
+    "infrared camera"
+  ],
+  "people_required": true,
+  "people_visible": true,
+  "people_count_yolo": 4,
+  "people_max_confidence": 0.8807,
+  "route_documented": false,
+  "route_confidence": "needs_review",
+  "mean_saturation": 0.03,
+  "sharpness": 5189.95,
+  "width": 1191,
+  "height": 670,
+  "sha256": "756460ae60d6ce3e84a142a0737b8e482922471f191504884396549108bb2831",
+  "perceptual_hash": "699f8ba3b2d99933",
+  "local_file": "candidates/C0029.jpg",
+  "extra": {
+    "engine": "",
+    "query": "Libya Italy migrants surveillance (\"thermal camera\" OR \"thermal footage\" OR \"infrared camera\") (migrant OR migrants OR refugee OR people OR crossing)"
+  },
+  "found_at_utc": "2026-08-16T10:25:34.805273+00:00",
+  "hunter_candidate_id": "C0029",
+  "hunter_run": "run_20260816_132313",
+  "hunter_metadata_file": "camera_hunter_v2/run_20260816_132313/metadata/C0029.json",
+  "image_device": "military-grade midwave infrared camera",
+  "institution": "Richard Mosse / The New Yorker",
+  "location": "Idomeni, Greece, near the Greece–North Macedonia border",
+  "metadata_confidence": "verified by The New Yorker caption and article",
+  "metadata_basis": "The New Yorker — Detail of Idomeni Camp, 2016",
+  "documented_devices": [
+    "military-grade midwave infrared thermal camera",
+    "telephoto lens",
+    "robotic panoramic scanning system"
+  ],
+  "apparatus": "military-grade thermal / infrared imaging",
+  "metadata_overrides_previous": {
+    "border": "Libya–Italy maritime"
+  },
+  "metadata_enriched_at": "2026-08-16T17:41:19.056982",
+  "metadata_enrichment_method": "source-page verification + visual inspection + explicit inference where needed",
+  "year": 2016,
+  "event_date": "2016",
+  "year_confidence": "documented",
+  "year_basis": "Richard Mosse photographed Idomeni / Heat Maps in 2016; article published 2017",
+  "year_inferred": false
+}

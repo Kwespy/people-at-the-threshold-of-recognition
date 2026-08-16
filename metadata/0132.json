@@ -1,0 +1,71 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C0080.webp",
+  "id": "0132",
+  "original": "originals/0132.webp",
+  "original_file": "originals/0132.webp",
+  "border": "France–United Kingdom maritime",
+  "people_count": 29,
+  "hunter_score": 73.11,
+  "metadata_recovery_source": "camera_hunter_v2 console log",
+  "score": 73.11,
+  "grade": "STRONG",
+  "origin_kind": "direct_image_search",
+  "title": "Channel migrant crisis is costing taxpayers astonishing £15 million ...",
+  "source_url": "https://www.express.co.uk/news/politics/1871934/Channel-small-boats-migrants-asylum-costs",
+  "image_url": "https://cdn.images.express.co.uk/img/dynamic/139/590x/secondary/5239886.jpg?r=1709153244931",
+  "border_hint": "France–United Kingdom",
+  "countries": [
+    "France",
+    "United Kingdom"
+  ],
+  "capture_family_search": "drone",
+  "capture_regime": "drone_or_aerial_surveillance",
+  "intentional_still_capture": false,
+  "capture_hits": [
+    "drone footage",
+    "drone surveillance",
+    "aerial surveillance"
+  ],
+  "people_required": true,
+  "people_visible": true,
+  "people_count_yolo": 29,
+  "people_max_confidence": 0.6417,
+  "route_documented": false,
+  "route_confidence": "needs_review",
+  "mean_saturation": 22.38,
+  "sharpness": 597.73,
+  "width": 590,
+  "height": 393,
+  "sha256": "3a3cb9e96292277d539e9a76746352999e636495b4f821b6ad4cdd73d5e4ccfd",
+  "perceptual_hash": "e3c389c461e00515",
+  "local_file": "candidates/C0080.jpg",
+  "extra": {
+    "engine": "",
+    "query": "France UK Channel migrants (\"drone footage\" OR \"drone surveillance\" OR \"aerial surveillance\") (migrant OR migrants OR refugee OR people OR crossing)"
+  },
+  "found_at_utc": "2026-08-16T10:29:30.537939+00:00",
+  "hunter_candidate_id": "C0080",
+  "hunter_run": "run_20260816_132313",
+  "hunter_metadata_file": "camera_hunter_v2/run_20260816_132313/metadata/C0080.json",
+  "image_device": "digital still camera",
+  "institution": "Daily Express",
+  "location": "English Channel / southeast England coast",
+  "metadata_confidence": "border/source high; exact coastal point/device inferred",
+  "metadata_basis": "source page + image inspection",
+  "documented_devices": [
+    "telephoto / elevated press camera (exact model not documented)"
+  ],
+  "apparatus": "long-range press/news photography",
+  "metadata_overrides_previous": {
+    "border": "France–United Kingdom"
+  },
+  "metadata_enriched_at": "2026-08-16T17:41:19.057415",
+  "metadata_enrichment_method": "source-page verification + visual inspection + explicit inference where needed",
+  "year": 2024,
+  "event_date": "2024",
+  "year_confidence": "documented",
+  "year_basis": "Express Channel source/image chronology dated February 2024",
+  "year_inferred": false
+}

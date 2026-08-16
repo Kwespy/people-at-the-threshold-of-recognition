@@ -1,0 +1,71 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C0005.webp",
+  "id": "0111",
+  "original": "originals/0111.webp",
+  "original_file": "originals/0111.webp",
+  "border": "France–United Kingdom maritime",
+  "people_count": 19,
+  "hunter_score": 84.32,
+  "metadata_recovery_source": "camera_hunter_v2 console log",
+  "score": 84.32,
+  "grade": "STRONG",
+  "origin_kind": "direct_image_search",
+  "title": "First Channel migrants to be sent back to France on Monday",
+  "source_url": "https://www.telegraph.co.uk/news/2025/09/13/first-channel-migrants-to-be-sent-back-to-france-on-monday/",
+  "image_url": "https://www.telegraph.co.uk/content/dam/news/2025/09/13/TELEMMGLPICT000434900447_17577635926940_trans_NvBQzQNjv4Bqu-OikvdBRER69p9XrEwjPlKs8AANcM_8A0aUTGMz1Pg.jpeg?imwidth=640",
+  "border_hint": "France–United Kingdom",
+  "countries": [
+    "France",
+    "United Kingdom"
+  ],
+  "capture_family_search": "thermal",
+  "capture_regime": "thermal_or_infrared_surveillance",
+  "intentional_still_capture": false,
+  "capture_hits": [
+    "thermal camera",
+    "thermal footage",
+    "infrared camera"
+  ],
+  "people_required": true,
+  "people_visible": true,
+  "people_count_yolo": 19,
+  "people_max_confidence": 0.7832,
+  "route_documented": false,
+  "route_confidence": "needs_review",
+  "mean_saturation": 59.51,
+  "sharpness": 943.75,
+  "width": 640,
+  "height": 400,
+  "sha256": "a77935eaafd00a018003845153633d83c41f5cfc67b4184c6806828ecf759a05",
+  "perceptual_hash": "8317a18f5b393dc0",
+  "local_file": "candidates/C0005.jpg",
+  "extra": {
+    "engine": "",
+    "query": "France UK Channel migrants (\"thermal camera\" OR \"thermal footage\" OR \"infrared camera\") (migrant OR migrants OR refugee OR people OR crossing)"
+  },
+  "found_at_utc": "2026-08-16T10:23:38.897611+00:00",
+  "hunter_candidate_id": "C0005",
+  "hunter_run": "run_20260816_132313",
+  "hunter_metadata_file": "camera_hunter_v2/run_20260816_132313/metadata/C0005.json",
+  "image_device": "digital still camera",
+  "institution": "The Telegraph",
+  "location": "Dover / English Channel, United Kingdom",
+  "metadata_confidence": "border/source high; capture device inferred",
+  "metadata_basis": "source page + image inspection",
+  "documented_devices": [
+    "digital press/news still camera (exact model not documented)"
+  ],
+  "apparatus": "press/news still photography",
+  "metadata_overrides_previous": {
+    "border": "France–United Kingdom"
+  },
+  "metadata_enriched_at": "2026-08-16T17:41:19.056248",
+  "metadata_enrichment_method": "source-page verification + visual inspection + explicit inference where needed",
+  "year": 2025,
+  "event_date": "2025",
+  "year_confidence": "documented",
+  "year_basis": "Telegraph source article dated 2025",
+  "year_inferred": false
+}

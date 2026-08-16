@@ -1,0 +1,91 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C005.webp",
+  "id": "0127",
+  "original": "originals/0127.webp",
+  "original_file": "originals/0127.webp",
+  "url": "https://www.foxnews.com/us/over-2200-migrants-caught-video-illegally-crossing-eagle-pass-texas-border-overnight-sources-say",
+  "title": "Over 2,200 migrants caught on video illegally crossing border near ...",
+  "snippet": "Fox News video showed more than 2,200 migrants pouring over the border from Piedras Negras, Mexico , to near Eagle, Pass, Texas, overnight.",
+  "search_engine": "duckduckgo",
+  "score": 10,
+  "people_hits": [
+    "migrant",
+    "migrants",
+    "crossing",
+    "cross"
+  ],
+  "border_hits": [
+    "border"
+  ],
+  "official_bonus": 0,
+  "query_border": "Mexico–United States",
+  "query_countries": [
+    "Mexico",
+    "United States"
+  ],
+  "search_query": "CCTV migrants crossing border Mexico United States border",
+  "page_people_hits": [
+    "migrant",
+    "migrants",
+    "migration",
+    "people",
+    "person",
+    "group",
+    "crossing",
+    "crossed",
+    "cross",
+    "river"
+  ],
+  "page_border_hits": [
+    "border",
+    "border patrol",
+    "immigration"
+  ],
+  "page_negative_hits": [
+    "opinion"
+  ],
+  "final_score": 28.0,
+  "final_url": "https://www.foxnews.com/us/over-2200-migrants-caught-video-illegally-crossing-eagle-pass-texas-border-overnight-sources-say",
+  "page_title": "Over 2,200 migrants caught on video illegally crossing border near Eagle Pass, Texas, overnight, sources say",
+  "description": "Fox News video showed more than 2,200 migrants pouring over the border from Piedras Negras, Mexico, to near Eagle, Pass, Texas, overnight.",
+  "candidate_id": "C005",
+  "preview": "previews/C005.jpg",
+  "preview_image_url": "https://static.foxnews.com/foxnews.com/content/uploads/2023/09/migrant-drone-clip-2.jpg",
+  "preview_width": 1280,
+  "preview_height": 720,
+  "mean_saturation": 47.89,
+  "people_heuristic": 33,
+  "route_documented": true,
+  "needs_route_review": true,
+  "needs_capture_review": true,
+  "border": "Mexico–United States",
+  "metadata_recovery_source": "camera_hunter_scan.zip / metadata/C005.json",
+  "source": "fox_news",
+  "publisher": "Fox News",
+  "institution": "Fox News",
+  "source_type": "news drone video frame",
+  "location": "Piedras Negras, Coahuila → Eagle Pass, Texas, Mexico–United States border",
+  "from": "Mexico",
+  "to": "United States",
+  "from_country": "Mexico",
+  "to_country": "United States",
+  "route_confidence": "verified_from_source_article",
+  "apparatus": "drone / aerial news video",
+  "documented_devices": [
+    "Fox News drone-mounted video camera"
+  ],
+  "image_device": "drone-mounted digital video camera",
+  "metadata_basis": "Fox News article: drone team footage of migrants near Eagle Pass after crossing from Piedras Negras",
+  "metadata_confidence": "high",
+  "metadata_overrides_previous": {
+    "route_documented": false
+  },
+  "metadata_completed_at": "2026-08-16T17:44:35.507434",
+  "year": 2023,
+  "event_date": "2023",
+  "year_confidence": "documented",
+  "year_basis": "Fox News Eagle Pass drone source and source image path dated September 2023",
+  "year_inferred": false
+}

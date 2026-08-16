@@ -1,0 +1,72 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C0001.webp",
+  "id": "0110",
+  "original": "originals/0110.webp",
+  "original_file": "originals/0110.webp",
+  "border": "United States–Mexico",
+  "people_count": 5,
+  "hunter_score": 84.32,
+  "metadata_recovery_source": "camera_hunter_v2 console log",
+  "score": 84.32,
+  "grade": "STRONG",
+  "origin_kind": "direct_image_search",
+  "title": "Shocking night vision footage shows moment more than 500 migrants sneak ...",
+  "source_url": "https://www.dailymail.co.uk/news/article-11220413/Shocking-night-vision-footage-shows-moment-500-migrants-sneak-border-Texas.html",
+  "image_url": "https://i.dailymail.co.uk/1s/2022/09/16/20/62490291-11220413-New_thermal_imaging_shows_thousands_of_migrants_swarming_the_sou-a-16_1663355337101.jpg",
+  "border_hint": "France–United Kingdom",
+  "countries": [
+    "France",
+    "United Kingdom"
+  ],
+  "capture_family_search": "thermal",
+  "capture_regime": "thermal_or_infrared_surveillance",
+  "intentional_still_capture": false,
+  "capture_hits": [
+    "thermal camera",
+    "thermal footage",
+    "infrared camera",
+    "night vision"
+  ],
+  "people_required": true,
+  "people_visible": true,
+  "people_count_yolo": 5,
+  "people_max_confidence": 0.2175,
+  "route_documented": false,
+  "route_confidence": "needs_review",
+  "mean_saturation": 0.6,
+  "sharpness": 50.03,
+  "width": 962,
+  "height": 912,
+  "sha256": "c4cd0b3a074c96bbe5e2719ac68ef90e7ccb2ee047da082543274678a925def3",
+  "perceptual_hash": "cd0d39fbeaa174fc",
+  "local_file": "candidates/C0001.jpg",
+  "extra": {
+    "engine": "",
+    "query": "France UK Channel migrants (\"thermal camera\" OR \"thermal footage\" OR \"infrared camera\") (migrant OR migrants OR refugee OR people OR crossing)"
+  },
+  "found_at_utc": "2026-08-16T10:23:34.372698+00:00",
+  "hunter_candidate_id": "C0001",
+  "hunter_run": "run_20260816_132313",
+  "hunter_metadata_file": "camera_hunter_v2/run_20260816_132313/metadata/C0001.json",
+  "image_device": "thermal / infrared imaging system",
+  "institution": "Daily Mail",
+  "location": "Texas–Mexico border, United States (exact sector not confirmed)",
+  "metadata_confidence": "border verified from source title; exact Texas sector inferred",
+  "metadata_basis": "source page + thermal image inspection",
+  "documented_devices": [
+    "thermal / infrared night-vision imaging system"
+  ],
+  "apparatus": "thermal / infrared border imaging",
+  "metadata_overrides_previous": {
+    "border": "France–United Kingdom"
+  },
+  "metadata_enriched_at": "2026-08-16T17:41:19.056161",
+  "metadata_enrichment_method": "source-page verification + visual inspection + explicit inference where needed",
+  "year": 2022,
+  "event_date": "2022",
+  "year_confidence": "documented",
+  "year_basis": "Daily Mail thermal footage / source image and article chronology",
+  "year_inferred": false
+}

@@ -1,0 +1,72 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C0024.webp",
+  "id": "0121",
+  "original": "originals/0121.webp",
+  "original_file": "originals/0121.webp",
+  "border": "Myanmar–Thailand",
+  "people_count": 2,
+  "hunter_score": 57.02,
+  "metadata_recovery_source": "camera_hunter_v2 console log",
+  "score": 98.79,
+  "grade": "STRONG",
+  "origin_kind": "direct_image_search",
+  "title": "Bangkok Post - Over 500 Myanmar refugees fleeing clashes enter Thailand",
+  "source_url": "https://www.bangkokpost.com/thailand/general/2970823/over-500-myanmar-refugees-fleeing-clashes-enter-thailand",
+  "image_url": "https://static.bangkokpost.com/media/content/20250301/c1_2970823_1200.jpg",
+  "border_hint": "Myanmar–Thailand",
+  "countries": [
+    "Myanmar",
+    "Thailand"
+  ],
+  "capture_family_search": "fixed",
+  "capture_regime": "fixed_or_remote_surveillance",
+  "intentional_still_capture": false,
+  "capture_hits": [
+    "cctv",
+    "surveillance camera",
+    "surveillance footage",
+    "security camera"
+  ],
+  "people_required": true,
+  "people_visible": true,
+  "people_count_yolo": 17,
+  "people_max_confidence": 0.802,
+  "route_documented": false,
+  "route_confidence": "needs_review",
+  "mean_saturation": 78.63,
+  "sharpness": 206.86,
+  "width": 1200,
+  "height": 800,
+  "sha256": "c8cbc8fc10f1fd49994a12a9bd121afbc388f91f56ba283e70de3f5139a2399c",
+  "perceptual_hash": "381262e1a626ecf4",
+  "local_file": "candidates/C0024.jpg",
+  "extra": {
+    "engine": "bangkokpost.com",
+    "query": "Myanmar Thailand border refugees (CCTV OR \"surveillance camera\" OR \"security camera\" OR \"surveillance footage\") (migrant OR migrants OR refugee OR people OR crossing)"
+  },
+  "found_at_utc": "2026-08-16T10:51:48.495176+00:00",
+  "hunter_candidate_id": "C0024",
+  "hunter_run": "run_20260816_134656",
+  "hunter_metadata_file": "camera_hunter_v2/run_20260816_134656/metadata/C0024.json",
+  "image_device": "digital still camera",
+  "institution": "Bangkok Post",
+  "location": "Thailand–Myanmar border (exact province not confirmed)",
+  "metadata_confidence": "border/source high; exact crossing/device inferred",
+  "metadata_basis": "Bangkok Post source page + image inspection",
+  "documented_devices": [
+    "press/news still camera (exact model not documented)"
+  ],
+  "apparatus": "press/news still photography",
+  "metadata_overrides_previous": {
+    "border": "Libya–Italy maritime"
+  },
+  "metadata_enriched_at": "2026-08-16T17:41:19.056925",
+  "metadata_enrichment_method": "source-page verification + visual inspection + explicit inference where needed",
+  "year": 2025,
+  "event_date": "2025",
+  "year_confidence": "documented",
+  "year_basis": "Bangkok Post source dated March 2025",
+  "year_inferred": false
+}

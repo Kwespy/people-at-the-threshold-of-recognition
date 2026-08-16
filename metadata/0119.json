@@ -1,0 +1,71 @@
+{
+  "project": "BORDER TRANSIT",
+  "sync_status": "added_from_originals",
+  "source_filename": "C0019.webp",
+  "id": "0119",
+  "original": "originals/0119.webp",
+  "original_file": "originals/0119.webp",
+  "border": "United States–Mexico",
+  "people_count": 38,
+  "hunter_score": 79.66,
+  "metadata_recovery_source": "camera_hunter_v2 console log",
+  "score": 79.66,
+  "grade": "STRONG",
+  "origin_kind": "direct_image_search",
+  "title": "Drone footage of migrants in Eagle Pass, TX | Fox News Video",
+  "source_url": "https://www.foxnews.com/video/6311608394112",
+  "image_url": "https://a57.foxnews.com/cf-images.us-east-1.prod.boltdns.net/v1/static/694940094001/e5a0dc31-05db-458d-9973-0d5620d12985/9e00f269-0e0f-45d2-9cd9-ec1cbff240c4/1280x720/match/1024/512/image.jpg?ve=1&tl=1",
+  "border_hint": "Libya–Italy maritime",
+  "countries": [
+    "Libya",
+    "Italy"
+  ],
+  "capture_family_search": "drone",
+  "capture_regime": "drone_or_aerial_surveillance",
+  "intentional_still_capture": false,
+  "capture_hits": [
+    "drone footage",
+    "drone surveillance",
+    "aerial surveillance"
+  ],
+  "people_required": true,
+  "people_visible": true,
+  "people_count_yolo": 38,
+  "people_max_confidence": 0.8001,
+  "route_documented": false,
+  "route_confidence": "needs_review",
+  "mean_saturation": 106.27,
+  "sharpness": 344.02,
+  "width": 1024,
+  "height": 512,
+  "sha256": "36af580b83f2c9487fdda381313ebb15fa8b6974ad5ba5346577d5812e237707",
+  "perceptual_hash": "a033610c82defea4",
+  "local_file": "candidates/C0019.jpg",
+  "extra": {
+    "engine": "",
+    "query": "Libya Italy migrants surveillance (\"drone footage\" OR \"drone surveillance\" OR \"aerial surveillance\") (migrant OR migrants OR refugee OR people OR crossing)"
+  },
+  "found_at_utc": "2026-08-16T10:24:46.930398+00:00",
+  "hunter_candidate_id": "C0019",
+  "hunter_run": "run_20260816_132313",
+  "hunter_metadata_file": "camera_hunter_v2/run_20260816_132313/metadata/C0019.json",
+  "image_device": "drone-mounted digital video camera",
+  "institution": "Fox News",
+  "location": "Eagle Pass, Texas, United States–Mexico border",
+  "metadata_confidence": "border/location/apparatus verified by source title",
+  "metadata_basis": "Fox News source page + image inspection",
+  "documented_devices": [
+    "drone / aerial video camera"
+  ],
+  "apparatus": "drone / aerial news imaging",
+  "metadata_overrides_previous": {
+    "border": "Libya–Italy maritime"
+  },
+  "metadata_enriched_at": "2026-08-16T17:41:19.056826",
+  "metadata_enrichment_method": "source-page verification + visual inspection + explicit inference where needed",
+  "year": 2022,
+  "event_date": "2022",
+  "year_confidence": "documented",
+  "year_basis": "Fox News drone footage: Eagle Pass, August 2022",
+  "year_inferred": false
+}
