@@ -1478,6 +1478,18 @@ def static_file(
 
 
 # ============================================================
+# RENDER / GUNICORN
+#
+# Gunicorn imports this module instead of executing __main__.
+# Start the same background generator here as well.
+# start_worker() already protects against duplicate startup
+# inside this Python process.
+# ============================================================
+
+start_worker()
+
+
+# ============================================================
 # RUN
 # ============================================================
 
