@@ -1,6 +1,6 @@
 {
   "project": "Border Transit",
-  "generated_at_utc": "2026-08-16T15:46:02.344862+00:00",
+  "generated_at_utc": "2026-08-16T16:23:55.201080+00:00",
   "pool_count": 47,
   "rendered_count": 47,
   "failed_count": 0,
@@ -124,7 +124,7 @@
         "deriva_vectorial_rgb"
       ],
       "generator_seed": 189105568509239,
-      "generated_at_utc": "2026-08-16T15:42:10.080005+00:00",
+      "generated_at_utc": "2026-08-16T16:21:29.634094+00:00",
       "render_status": "ok"
     },
     {
@@ -239,7 +239,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 138127286139701,
-      "generated_at_utc": "2026-08-16T15:42:10.864502+00:00",
+      "generated_at_utc": "2026-08-16T16:21:30.509181+00:00",
       "render_status": "ok"
     },
     {
@@ -351,13 +351,15 @@
         },
         {
           "step": 2,
-          "name": "cmyk_reticula",
-          "order": 40,
+          "name": "reconstruccion_parches",
+          "order": 200,
           "seed": 14427651768704,
           "legibility": 0.25,
           "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
+            "TAM_PARCHE": 5,
+            "TOP_K": 25,
+            "DIST_MIN_PARCHES": 90,
+            "USAR_COLOR": true
           },
           "input_size": [
             1000,
@@ -371,10 +373,10 @@
       ],
       "operation_names": [
         "saturacion_vecindad_rgb",
-        "cmyk_reticula"
+        "reconstruccion_parches"
       ],
       "generator_seed": 14427651766686,
-      "generated_at_utc": "2026-08-16T15:42:20.154616+00:00",
+      "generated_at_utc": "2026-08-16T16:21:33.711721+00:00",
       "render_status": "ok"
     },
     {
@@ -493,7 +495,7 @@
         "matriz_color"
       ],
       "generator_seed": 69399503047767,
-      "generated_at_utc": "2026-08-16T15:42:21.306156+00:00",
+      "generated_at_utc": "2026-08-16T16:21:34.752864+00:00",
       "render_status": "ok"
     },
     {
@@ -611,7 +613,7 @@
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 394258351000,
-      "generated_at_utc": "2026-08-16T15:42:23.047785+00:00",
+      "generated_at_utc": "2026-08-16T16:21:36.336404+00:00",
       "render_status": "ok"
     },
     {
@@ -728,13 +730,20 @@
         },
         {
           "step": 2,
-          "name": "cmyk_reticula",
+          "name": "campo_vectorial_rgb_svg",
           "order": 40,
           "seed": 60651732153323,
           "legibility": 0.25,
           "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
+            "MUESTREO": 1,
+            "LONGITUD_MIN": 82.0,
+            "LONGITUD_MAX": 98.0,
+            "GROSOR_MIN": 1.0,
+            "GROSOR_MAX": 4.0,
+            "MODO_COLOR": "original",
+            "FONDO": "white",
+            "OPACIDAD": 90,
+            "ESCALA_SALIDA": 1.0
           },
           "input_size": [
             1599,
@@ -769,11 +778,11 @@
       ],
       "operation_names": [
         "saturacion_vecindad_rgb",
-        "cmyk_reticula",
+        "campo_vectorial_rgb_svg",
         "reconstruccion_parches"
       ],
       "generator_seed": 60651732151305,
-      "generated_at_utc": "2026-08-16T15:42:44.534052+00:00",
+      "generated_at_utc": "2026-08-16T16:21:53.213868+00:00",
       "render_status": "ok"
     },
     {
@@ -847,13 +856,15 @@
       "operations": [
         {
           "step": 1,
-          "name": "cmyk_reticula",
-          "order": 40,
+          "name": "reconstruccion_parches",
+          "order": 200,
           "seed": 250736153119377,
           "legibility": 0.25,
           "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
+            "TAM_PARCHE": 5,
+            "TOP_K": 25,
+            "DIST_MIN_PARCHES": 90,
+            "USAR_COLOR": true
           },
           "input_size": [
             1440,
@@ -866,10 +877,10 @@
         }
       ],
       "operation_names": [
-        "cmyk_reticula"
+        "reconstruccion_parches"
       ],
       "generator_seed": 250736153118368,
-      "generated_at_utc": "2026-08-16T15:43:00.828340+00:00",
+      "generated_at_utc": "2026-08-16T16:21:57.868106+00:00",
       "render_status": "ok"
     },
     {
@@ -945,15 +956,17 @@
       "operations": [
         {
           "step": 1,
-          "name": "reconstruccion_parches",
-          "order": 200,
+          "name": "deriva_vectorial_rgb",
+          "order": 6,
           "seed": 219744127735148,
           "legibility": 0.25,
           "params": {
-            "TAM_PARCHE": 5,
-            "TOP_K": 25,
-            "DIST_MIN_PARCHES": 90,
-            "USAR_COLOR": true
+            "DISTANCIA_MAX": 88,
+            "PASOS": 7,
+            "CURVATURA_MAX": 2.6,
+            "FUERZA_NEUTROS": 2.15,
+            "PESO_ORIGINAL": 0.1,
+            "ESCALA_PROCESO": 1.0
           },
           "input_size": [
             1838,
@@ -966,10 +979,10 @@
         }
       ],
       "operation_names": [
-        "reconstruccion_parches"
+        "deriva_vectorial_rgb"
       ],
       "generator_seed": 219744127734139,
-      "generated_at_utc": "2026-08-16T15:43:07.477026+00:00",
+      "generated_at_utc": "2026-08-16T16:22:03.000649+00:00",
       "render_status": "ok"
     },
     {
@@ -1070,15 +1083,20 @@
         },
         {
           "step": 2,
-          "name": "reconstruccion_parches",
-          "order": 200,
+          "name": "matriz_color",
+          "order": 30,
           "seed": 83953013807308,
           "legibility": 0.25,
           "params": {
-            "TAM_PARCHE": 5,
-            "TOP_K": 25,
-            "DIST_MIN_PARCHES": 90,
-            "USAR_COLOR": true
+            "COLS": 172,
+            "NUM_COLORS": 102,
+            "STRENGTH": 1.45,
+            "REMAP_MODE": "CHAOTIC",
+            "REMAP_CHAOS": 0.78,
+            "REMAP_MAX_SHIFT": 18,
+            "REMAP_PRESERVE_FIRST": 0,
+            "REMAP_ROTATIONS": 4,
+            "REMAP_SEED": 0
           },
           "input_size": [
             1920,
@@ -1092,10 +1110,10 @@
       ],
       "operation_names": [
         "saturacion_vecindad_rgb",
-        "reconstruccion_parches"
+        "matriz_color"
       ],
       "generator_seed": 83953013805290,
-      "generated_at_utc": "2026-08-16T15:43:13.994029+00:00",
+      "generated_at_utc": "2026-08-16T16:22:04.834906+00:00",
       "render_status": "ok"
     },
     {
@@ -1166,17 +1184,18 @@
       "operations": [
         {
           "step": 1,
-          "name": "deriva_vectorial_rgb",
-          "order": 6,
+          "name": "saturacion_vecindad_rgb",
+          "order": 20,
           "seed": 270310902096324,
           "legibility": 0.25,
           "params": {
-            "DISTANCIA_MAX": 88,
-            "PASOS": 7,
-            "CURVATURA_MAX": 2.6,
-            "FUERZA_NEUTROS": 2.15,
-            "PESO_ORIGINAL": 0.1,
-            "ESCALA_PROCESO": 1.0
+            "ANCHO_PROCESO": 1200,
+            "SUAVIZADO": 3.0,
+            "BINS_RGB": 12,
+            "TAMANO_MINIMO": 80,
+            "SATURACION": 0.9,
+            "UNIFICACION": 0.75,
+            "INTENSIDAD": 0.65
           },
           "input_size": [
             1280,
@@ -1189,10 +1208,10 @@
         }
       ],
       "operation_names": [
-        "deriva_vectorial_rgb"
+        "saturacion_vecindad_rgb"
       ],
       "generator_seed": 270310902095315,
-      "generated_at_utc": "2026-08-16T15:43:16.716131+00:00",
+      "generated_at_utc": "2026-08-16T16:22:06.589563+00:00",
       "render_status": "ok"
     },
     {
@@ -1263,18 +1282,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "saturacion_vecindad_rgb",
-          "order": 20,
+          "name": "matriz_color",
+          "order": 30,
           "seed": 278294354270644,
           "legibility": 0.25,
           "params": {
-            "ANCHO_PROCESO": 1200,
-            "SUAVIZADO": 3.0,
-            "BINS_RGB": 12,
-            "TAMANO_MINIMO": 80,
-            "SATURACION": 0.9,
-            "UNIFICACION": 0.75,
-            "INTENSIDAD": 0.65
+            "COLS": 172,
+            "NUM_COLORS": 102,
+            "STRENGTH": 1.45,
+            "REMAP_MODE": "CHAOTIC",
+            "REMAP_CHAOS": 0.78,
+            "REMAP_MAX_SHIFT": 18,
+            "REMAP_PRESERVE_FIRST": 0,
+            "REMAP_ROTATIONS": 4,
+            "REMAP_SEED": 0
           },
           "input_size": [
             1280,
@@ -1287,10 +1308,10 @@
         }
       ],
       "operation_names": [
-        "saturacion_vecindad_rgb"
+        "matriz_color"
       ],
       "generator_seed": 278294354269635,
-      "generated_at_utc": "2026-08-16T15:43:18.092078+00:00",
+      "generated_at_utc": "2026-08-16T16:22:07.001502+00:00",
       "render_status": "ok"
     },
     {
@@ -1360,9 +1381,32 @@
       "operations": [
         {
           "step": 1,
+          "name": "deriva_vectorial_rgb",
+          "order": 6,
+          "seed": 220422022993392,
+          "legibility": 0.25,
+          "params": {
+            "DISTANCIA_MAX": 88,
+            "PASOS": 7,
+            "CURVATURA_MAX": 2.6,
+            "FUERZA_NEUTROS": 2.15,
+            "PESO_ORIGINAL": 0.1,
+            "ESCALA_PROCESO": 1.0
+          },
+          "input_size": [
+            1280,
+            720
+          ],
+          "output_size": [
+            1280,
+            720
+          ]
+        },
+        {
+          "step": 2,
           "name": "campo_vectorial_rgb_svg",
           "order": 40,
-          "seed": 220422022993392,
+          "seed": 220422022994401,
           "legibility": 0.25,
           "params": {
             "MUESTREO": 1,
@@ -1383,33 +1427,14 @@
             1280,
             720
           ]
-        },
-        {
-          "step": 2,
-          "name": "cmyk_reticula",
-          "order": 40,
-          "seed": 220422022994401,
-          "legibility": 0.25,
-          "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
-          },
-          "input_size": [
-            1280,
-            720
-          ],
-          "output_size": [
-            1280,
-            720
-          ]
         }
       ],
       "operation_names": [
-        "campo_vectorial_rgb_svg",
-        "cmyk_reticula"
+        "deriva_vectorial_rgb",
+        "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 220422022992383,
-      "generated_at_utc": "2026-08-16T15:43:28.316788+00:00",
+      "generated_at_utc": "2026-08-16T16:22:09.579700+00:00",
       "render_status": "ok"
     },
     {
@@ -1479,20 +1504,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "matriz_color",
-          "order": 30,
+          "name": "campo_vectorial_rgb_svg",
+          "order": 40,
           "seed": 55771697386988,
           "legibility": 0.25,
           "params": {
-            "COLS": 172,
-            "NUM_COLORS": 102,
-            "STRENGTH": 1.45,
-            "REMAP_MODE": "CHAOTIC",
-            "REMAP_CHAOS": 0.78,
-            "REMAP_MAX_SHIFT": 18,
-            "REMAP_PRESERVE_FIRST": 0,
-            "REMAP_ROTATIONS": 4,
-            "REMAP_SEED": 0
+            "MUESTREO": 1,
+            "LONGITUD_MIN": 82.0,
+            "LONGITUD_MAX": 98.0,
+            "GROSOR_MIN": 1.0,
+            "GROSOR_MAX": 4.0,
+            "MODO_COLOR": "original",
+            "FONDO": "white",
+            "OPACIDAD": 90,
+            "ESCALA_SALIDA": 1.0
           },
           "input_size": [
             1280,
@@ -1505,10 +1530,10 @@
         }
       ],
       "operation_names": [
-        "matriz_color"
+        "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 55771697385979,
-      "generated_at_utc": "2026-08-16T15:43:28.868130+00:00",
+      "generated_at_utc": "2026-08-16T16:22:13.995504+00:00",
       "render_status": "ok"
     },
     {
@@ -1578,20 +1603,15 @@
       "operations": [
         {
           "step": 1,
-          "name": "campo_vectorial_rgb_svg",
-          "order": 40,
+          "name": "reconstruccion_parches",
+          "order": 200,
           "seed": 258752117689762,
           "legibility": 0.25,
           "params": {
-            "MUESTREO": 1,
-            "LONGITUD_MIN": 82.0,
-            "LONGITUD_MAX": 98.0,
-            "GROSOR_MIN": 1.0,
-            "GROSOR_MAX": 4.0,
-            "MODO_COLOR": "original",
-            "FONDO": "white",
-            "OPACIDAD": 90,
-            "ESCALA_SALIDA": 1.0
+            "TAM_PARCHE": 5,
+            "TOP_K": 25,
+            "DIST_MIN_PARCHES": 90,
+            "USAR_COLOR": true
           },
           "input_size": [
             1920,
@@ -1604,10 +1624,10 @@
         }
       ],
       "operation_names": [
-        "campo_vectorial_rgb_svg"
+        "reconstruccion_parches"
       ],
       "generator_seed": 258752117688753,
-      "generated_at_utc": "2026-08-16T15:43:41.518356+00:00",
+      "generated_at_utc": "2026-08-16T16:22:20.490752+00:00",
       "render_status": "ok"
     },
     {
@@ -1756,7 +1776,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 180967229710715,
-      "generated_at_utc": "2026-08-16T15:44:03.644962+00:00",
+      "generated_at_utc": "2026-08-16T16:22:42.137640+00:00",
       "render_status": "ok"
     },
     {
@@ -1834,13 +1854,17 @@
       "operations": [
         {
           "step": 1,
-          "name": "cmyk_reticula",
-          "order": 40,
+          "name": "deriva_vectorial_rgb",
+          "order": 6,
           "seed": 169313418118084,
           "legibility": 0.25,
           "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
+            "DISTANCIA_MAX": 88,
+            "PASOS": 7,
+            "CURVATURA_MAX": 2.6,
+            "FUERZA_NEUTROS": 2.15,
+            "PESO_ORIGINAL": 0.1,
+            "ESCALA_PROCESO": 1.0
           },
           "input_size": [
             1440,
@@ -1853,10 +1877,10 @@
         }
       ],
       "operation_names": [
-        "cmyk_reticula"
+        "deriva_vectorial_rgb"
       ],
       "generator_seed": 169313418117075,
-      "generated_at_utc": "2026-08-16T15:44:18.041334+00:00",
+      "generated_at_utc": "2026-08-16T16:22:45.819778+00:00",
       "render_status": "ok"
     },
     {
@@ -1930,15 +1954,18 @@
       "operations": [
         {
           "step": 1,
-          "name": "reconstruccion_parches",
-          "order": 200,
+          "name": "saturacion_vecindad_rgb",
+          "order": 20,
           "seed": 179796660309729,
           "legibility": 0.25,
           "params": {
-            "TAM_PARCHE": 5,
-            "TOP_K": 25,
-            "DIST_MIN_PARCHES": 90,
-            "USAR_COLOR": true
+            "ANCHO_PROCESO": 1200,
+            "SUAVIZADO": 3.0,
+            "BINS_RGB": 12,
+            "TAMANO_MINIMO": 80,
+            "SATURACION": 0.9,
+            "UNIFICACION": 0.75,
+            "INTENSIDAD": 0.65
           },
           "input_size": [
             2048,
@@ -1951,10 +1978,10 @@
         }
       ],
       "operation_names": [
-        "reconstruccion_parches"
+        "saturacion_vecindad_rgb"
       ],
       "generator_seed": 179796660308720,
-      "generated_at_utc": "2026-08-16T15:44:25.957227+00:00",
+      "generated_at_utc": "2026-08-16T16:22:47.303046+00:00",
       "render_status": "ok"
     },
     {
@@ -2057,13 +2084,20 @@
         },
         {
           "step": 2,
-          "name": "cmyk_reticula",
+          "name": "campo_vectorial_rgb_svg",
           "order": 40,
           "seed": 205704739213162,
           "legibility": 0.25,
           "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
+            "MUESTREO": 1,
+            "LONGITUD_MIN": 82.0,
+            "LONGITUD_MAX": 98.0,
+            "GROSOR_MIN": 1.0,
+            "GROSOR_MAX": 4.0,
+            "MODO_COLOR": "original",
+            "FONDO": "white",
+            "OPACIDAD": 90,
+            "ESCALA_SALIDA": 1.0
           },
           "input_size": [
             949,
@@ -2098,11 +2132,11 @@
       ],
       "operation_names": [
         "matriz_color",
-        "cmyk_reticula",
+        "campo_vectorial_rgb_svg",
         "reconstruccion_parches"
       ],
       "generator_seed": 205704739211144,
-      "generated_at_utc": "2026-08-16T15:44:32.953507+00:00",
+      "generated_at_utc": "2026-08-16T16:22:51.395773+00:00",
       "render_status": "ok"
     },
     {
@@ -2176,17 +2210,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "deriva_vectorial_rgb",
-          "order": 6,
+          "name": "matriz_color",
+          "order": 30,
           "seed": 44707195045811,
           "legibility": 0.25,
           "params": {
-            "DISTANCIA_MAX": 88,
-            "PASOS": 7,
-            "CURVATURA_MAX": 2.6,
-            "FUERZA_NEUTROS": 2.15,
-            "PESO_ORIGINAL": 0.1,
-            "ESCALA_PROCESO": 1.0
+            "COLS": 172,
+            "NUM_COLORS": 102,
+            "STRENGTH": 1.45,
+            "REMAP_MODE": "CHAOTIC",
+            "REMAP_CHAOS": 0.78,
+            "REMAP_MAX_SHIFT": 18,
+            "REMAP_PRESERVE_FIRST": 0,
+            "REMAP_ROTATIONS": 4,
+            "REMAP_SEED": 0
           },
           "input_size": [
             924,
@@ -2199,10 +2236,10 @@
         }
       ],
       "operation_names": [
-        "deriva_vectorial_rgb"
+        "matriz_color"
       ],
       "generator_seed": 44707195044802,
-      "generated_at_utc": "2026-08-16T15:44:34.154179+00:00",
+      "generated_at_utc": "2026-08-16T16:22:51.622652+00:00",
       "render_status": "ok"
     },
     {
@@ -2286,18 +2323,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "saturacion_vecindad_rgb",
-          "order": 20,
+          "name": "campo_vectorial_rgb_svg",
+          "order": 40,
           "seed": 240240086766762,
           "legibility": 0.25,
           "params": {
-            "ANCHO_PROCESO": 1200,
-            "SUAVIZADO": 3.0,
-            "BINS_RGB": 12,
-            "TAMANO_MINIMO": 80,
-            "SATURACION": 0.9,
-            "UNIFICACION": 0.75,
-            "INTENSIDAD": 0.65
+            "MUESTREO": 1,
+            "LONGITUD_MIN": 82.0,
+            "LONGITUD_MAX": 98.0,
+            "GROSOR_MIN": 1.0,
+            "GROSOR_MAX": 4.0,
+            "MODO_COLOR": "original",
+            "FONDO": "white",
+            "OPACIDAD": 90,
+            "ESCALA_SALIDA": 1.0
           },
           "input_size": [
             728,
@@ -2310,10 +2349,10 @@
         }
       ],
       "operation_names": [
-        "saturacion_vecindad_rgb"
+        "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 240240086765753,
-      "generated_at_utc": "2026-08-16T15:44:34.498136+00:00",
+      "generated_at_utc": "2026-08-16T16:22:52.309901+00:00",
       "render_status": "ok"
     },
     {
@@ -2433,15 +2472,20 @@
         },
         {
           "step": 2,
-          "name": "reconstruccion_parches",
-          "order": 200,
+          "name": "campo_vectorial_rgb_svg",
+          "order": 40,
           "seed": 102343664807676,
           "legibility": 0.25,
           "params": {
-            "TAM_PARCHE": 5,
-            "TOP_K": 25,
-            "DIST_MIN_PARCHES": 90,
-            "USAR_COLOR": true
+            "MUESTREO": 1,
+            "LONGITUD_MIN": 82.0,
+            "LONGITUD_MAX": 98.0,
+            "GROSOR_MIN": 1.0,
+            "GROSOR_MAX": 4.0,
+            "MODO_COLOR": "original",
+            "FONDO": "white",
+            "OPACIDAD": 90,
+            "ESCALA_SALIDA": 1.0
           },
           "input_size": [
             640,
@@ -2455,10 +2499,10 @@
       ],
       "operation_names": [
         "saturacion_vecindad_rgb",
-        "reconstruccion_parches"
+        "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 102343664805658,
-      "generated_at_utc": "2026-08-16T15:44:35.289916+00:00",
+      "generated_at_utc": "2026-08-16T16:22:53.351104+00:00",
       "render_status": "ok"
     },
     {
@@ -2555,20 +2599,15 @@
       "operations": [
         {
           "step": 1,
-          "name": "matriz_color",
-          "order": 30,
+          "name": "reconstruccion_parches",
+          "order": 200,
           "seed": 51952592341546,
           "legibility": 0.25,
           "params": {
-            "COLS": 172,
-            "NUM_COLORS": 102,
-            "STRENGTH": 1.45,
-            "REMAP_MODE": "CHAOTIC",
-            "REMAP_CHAOS": 0.78,
-            "REMAP_MAX_SHIFT": 18,
-            "REMAP_PRESERVE_FIRST": 0,
-            "REMAP_ROTATIONS": 4,
-            "REMAP_SEED": 0
+            "TAM_PARCHE": 5,
+            "TOP_K": 25,
+            "DIST_MIN_PARCHES": 90,
+            "USAR_COLOR": true
           },
           "input_size": [
             1200,
@@ -2581,10 +2620,10 @@
         }
       ],
       "operation_names": [
-        "matriz_color"
+        "reconstruccion_parches"
       ],
       "generator_seed": 51952592340537,
-      "generated_at_utc": "2026-08-16T15:44:35.699566+00:00",
+      "generated_at_utc": "2026-08-16T16:22:56.244575+00:00",
       "render_status": "ok"
     },
     {
@@ -2681,20 +2720,17 @@
       "operations": [
         {
           "step": 1,
-          "name": "campo_vectorial_rgb_svg",
-          "order": 40,
+          "name": "deriva_vectorial_rgb",
+          "order": 6,
           "seed": 178993510647328,
           "legibility": 0.25,
           "params": {
-            "MUESTREO": 1,
-            "LONGITUD_MIN": 82.0,
-            "LONGITUD_MAX": 98.0,
-            "GROSOR_MIN": 1.0,
-            "GROSOR_MAX": 4.0,
-            "MODO_COLOR": "original",
-            "FONDO": "white",
-            "OPACIDAD": 90,
-            "ESCALA_SALIDA": 1.0
+            "DISTANCIA_MAX": 88,
+            "PASOS": 7,
+            "CURVATURA_MAX": 2.6,
+            "FUERZA_NEUTROS": 2.15,
+            "PESO_ORIGINAL": 0.1,
+            "ESCALA_PROCESO": 1.0
           },
           "input_size": [
             1200,
@@ -2707,10 +2743,10 @@
         }
       ],
       "operation_names": [
-        "campo_vectorial_rgb_svg"
+        "deriva_vectorial_rgb"
       ],
       "generator_seed": 178993510646319,
-      "generated_at_utc": "2026-08-16T15:44:36.077244+00:00",
+      "generated_at_utc": "2026-08-16T16:22:58.406929+00:00",
       "render_status": "ok"
     },
     {
@@ -2863,7 +2899,7 @@
         "matriz_color"
       ],
       "generator_seed": 222221106354757,
-      "generated_at_utc": "2026-08-16T15:44:39.722288+00:00",
+      "generated_at_utc": "2026-08-16T16:23:01.956061+00:00",
       "render_status": "ok"
     },
     {
@@ -2947,13 +2983,18 @@
       "operations": [
         {
           "step": 1,
-          "name": "cmyk_reticula",
-          "order": 40,
+          "name": "saturacion_vecindad_rgb",
+          "order": 20,
           "seed": 214605948645065,
           "legibility": 0.25,
           "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
+            "ANCHO_PROCESO": 1200,
+            "SUAVIZADO": 3.0,
+            "BINS_RGB": 12,
+            "TAMANO_MINIMO": 80,
+            "SATURACION": 0.9,
+            "UNIFICACION": 0.75,
+            "INTENSIDAD": 0.65
           },
           "input_size": [
             366,
@@ -2966,10 +3007,10 @@
         }
       ],
       "operation_names": [
-        "cmyk_reticula"
+        "saturacion_vecindad_rgb"
       ],
       "generator_seed": 214605948644056,
-      "generated_at_utc": "2026-08-16T15:44:40.855123+00:00",
+      "generated_at_utc": "2026-08-16T16:23:02.110654+00:00",
       "render_status": "ok"
     },
     {
@@ -3053,15 +3094,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "reconstruccion_parches",
-          "order": 200,
+          "name": "matriz_color",
+          "order": 30,
           "seed": 173908188219052,
           "legibility": 0.25,
           "params": {
-            "TAM_PARCHE": 5,
-            "TOP_K": 25,
-            "DIST_MIN_PARCHES": 90,
-            "USAR_COLOR": true
+            "COLS": 172,
+            "NUM_COLORS": 102,
+            "STRENGTH": 1.45,
+            "REMAP_MODE": "CHAOTIC",
+            "REMAP_CHAOS": 0.78,
+            "REMAP_MAX_SHIFT": 18,
+            "REMAP_PRESERVE_FIRST": 0,
+            "REMAP_ROTATIONS": 4,
+            "REMAP_SEED": 0
           },
           "input_size": [
             962,
@@ -3074,10 +3120,10 @@
         }
       ],
       "operation_names": [
-        "reconstruccion_parches"
+        "matriz_color"
       ],
       "generator_seed": 173908188218043,
-      "generated_at_utc": "2026-08-16T15:44:43.487390+00:00",
+      "generated_at_utc": "2026-08-16T16:23:02.503197+00:00",
       "render_status": "ok"
     },
     {
@@ -3160,9 +3206,32 @@
       "operations": [
         {
           "step": 1,
+          "name": "deriva_vectorial_rgb",
+          "order": 6,
+          "seed": 23894341644765,
+          "legibility": 0.25,
+          "params": {
+            "DISTANCIA_MAX": 88,
+            "PASOS": 7,
+            "CURVATURA_MAX": 2.6,
+            "FUERZA_NEUTROS": 2.15,
+            "PESO_ORIGINAL": 0.1,
+            "ESCALA_PROCESO": 1.0
+          },
+          "input_size": [
+            640,
+            400
+          ],
+          "output_size": [
+            640,
+            400
+          ]
+        },
+        {
+          "step": 2,
           "name": "saturacion_vecindad_rgb",
           "order": 20,
-          "seed": 23894341644765,
+          "seed": 23894341645774,
           "legibility": 0.25,
           "params": {
             "ANCHO_PROCESO": 1200,
@@ -3181,33 +3250,14 @@
             640,
             400
           ]
-        },
-        {
-          "step": 2,
-          "name": "cmyk_reticula",
-          "order": 40,
-          "seed": 23894341645774,
-          "legibility": 0.25,
-          "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
-          },
-          "input_size": [
-            640,
-            400
-          ],
-          "output_size": [
-            640,
-            400
-          ]
         }
       ],
       "operation_names": [
-        "saturacion_vecindad_rgb",
-        "cmyk_reticula"
+        "deriva_vectorial_rgb",
+        "saturacion_vecindad_rgb"
       ],
       "generator_seed": 23894341643756,
-      "generated_at_utc": "2026-08-16T15:44:46.669314+00:00",
+      "generated_at_utc": "2026-08-16T16:23:03.306995+00:00",
       "render_status": "ok"
     },
     {
@@ -3283,17 +3333,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "deriva_vectorial_rgb",
-          "order": 6,
+          "name": "campo_vectorial_rgb_svg",
+          "order": 40,
           "seed": 97336108162923,
           "legibility": 0.25,
           "params": {
-            "DISTANCIA_MAX": 88,
-            "PASOS": 7,
-            "CURVATURA_MAX": 2.6,
-            "FUERZA_NEUTROS": 2.15,
-            "PESO_ORIGINAL": 0.1,
-            "ESCALA_PROCESO": 1.0
+            "MUESTREO": 1,
+            "LONGITUD_MIN": 82.0,
+            "LONGITUD_MAX": 98.0,
+            "GROSOR_MIN": 1.0,
+            "GROSOR_MAX": 4.0,
+            "MODO_COLOR": "original",
+            "FONDO": "white",
+            "OPACIDAD": 90,
+            "ESCALA_SALIDA": 1.0
           },
           "input_size": [
             1200,
@@ -3306,10 +3359,10 @@
         }
       ],
       "operation_names": [
-        "deriva_vectorial_rgb"
+        "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 97336108161914,
-      "generated_at_utc": "2026-08-16T15:44:48.836185+00:00",
+      "generated_at_utc": "2026-08-16T16:23:07.504031+00:00",
       "render_status": "ok"
     },
     {
@@ -3385,18 +3438,15 @@
       "operations": [
         {
           "step": 1,
-          "name": "saturacion_vecindad_rgb",
-          "order": 20,
+          "name": "reconstruccion_parches",
+          "order": 200,
           "seed": 111409873753307,
           "legibility": 0.25,
           "params": {
-            "ANCHO_PROCESO": 1200,
-            "SUAVIZADO": 3.0,
-            "BINS_RGB": 12,
-            "TAMANO_MINIMO": 80,
-            "SATURACION": 0.9,
-            "UNIFICACION": 0.75,
-            "INTENSIDAD": 0.65
+            "TAM_PARCHE": 5,
+            "TOP_K": 25,
+            "DIST_MIN_PARCHES": 90,
+            "USAR_COLOR": true
           },
           "input_size": [
             1280,
@@ -3409,10 +3459,10 @@
         }
       ],
       "operation_names": [
-        "saturacion_vecindad_rgb"
+        "reconstruccion_parches"
       ],
       "generator_seed": 111409873752298,
-      "generated_at_utc": "2026-08-16T15:44:49.531729+00:00",
+      "generated_at_utc": "2026-08-16T16:23:10.388450+00:00",
       "render_status": "ok"
     },
     {
@@ -3518,20 +3568,18 @@
         },
         {
           "step": 2,
-          "name": "matriz_color",
-          "order": 30,
+          "name": "saturacion_vecindad_rgb",
+          "order": 20,
           "seed": 8288545226973,
           "legibility": 0.25,
           "params": {
-            "COLS": 172,
-            "NUM_COLORS": 102,
-            "STRENGTH": 1.45,
-            "REMAP_MODE": "CHAOTIC",
-            "REMAP_CHAOS": 0.78,
-            "REMAP_MAX_SHIFT": 18,
-            "REMAP_PRESERVE_FIRST": 0,
-            "REMAP_ROTATIONS": 4,
-            "REMAP_SEED": 0
+            "ANCHO_PROCESO": 1200,
+            "SUAVIZADO": 3.0,
+            "BINS_RGB": 12,
+            "TAMANO_MINIMO": 80,
+            "SATURACION": 0.9,
+            "UNIFICACION": 0.75,
+            "INTENSIDAD": 0.65
           },
           "input_size": [
             1200,
@@ -3571,11 +3619,11 @@
       ],
       "operation_names": [
         "deriva_vectorial_rgb",
-        "matriz_color",
+        "saturacion_vecindad_rgb",
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 8288545224955,
-      "generated_at_utc": "2026-08-16T15:44:54.624564+00:00",
+      "generated_at_utc": "2026-08-16T16:23:16.759013+00:00",
       "render_status": "ok"
     },
     {
@@ -3658,20 +3706,17 @@
       "operations": [
         {
           "step": 1,
-          "name": "matriz_color",
-          "order": 30,
+          "name": "deriva_vectorial_rgb",
+          "order": 6,
           "seed": 53928307890164,
           "legibility": 0.25,
           "params": {
-            "COLS": 172,
-            "NUM_COLORS": 102,
-            "STRENGTH": 1.45,
-            "REMAP_MODE": "CHAOTIC",
-            "REMAP_CHAOS": 0.78,
-            "REMAP_MAX_SHIFT": 18,
-            "REMAP_PRESERVE_FIRST": 0,
-            "REMAP_ROTATIONS": 4,
-            "REMAP_SEED": 0
+            "DISTANCIA_MAX": 88,
+            "PASOS": 7,
+            "CURVATURA_MAX": 2.6,
+            "FUERZA_NEUTROS": 2.15,
+            "PESO_ORIGINAL": 0.1,
+            "ESCALA_PROCESO": 1.0
           },
           "input_size": [
             590,
@@ -3684,10 +3729,10 @@
         }
       ],
       "operation_names": [
-        "matriz_color"
+        "deriva_vectorial_rgb"
       ],
       "generator_seed": 53928307889155,
-      "generated_at_utc": "2026-08-16T15:44:54.823101+00:00",
+      "generated_at_utc": "2026-08-16T16:23:17.321822+00:00",
       "render_status": "ok"
     },
     {
@@ -3767,20 +3812,18 @@
       "operations": [
         {
           "step": 1,
-          "name": "campo_vectorial_rgb_svg",
-          "order": 40,
+          "name": "saturacion_vecindad_rgb",
+          "order": 20,
           "seed": 243206254667215,
           "legibility": 0.25,
           "params": {
-            "MUESTREO": 1,
-            "LONGITUD_MIN": 82.0,
-            "LONGITUD_MAX": 98.0,
-            "GROSOR_MIN": 1.0,
-            "GROSOR_MAX": 4.0,
-            "MODO_COLOR": "original",
-            "FONDO": "white",
-            "OPACIDAD": 90,
-            "ESCALA_SALIDA": 1.0
+            "ANCHO_PROCESO": 1200,
+            "SUAVIZADO": 3.0,
+            "BINS_RGB": 12,
+            "TAMANO_MINIMO": 80,
+            "SATURACION": 0.9,
+            "UNIFICACION": 0.75,
+            "INTENSIDAD": 0.65
           },
           "input_size": [
             1920,
@@ -3793,10 +3836,10 @@
         }
       ],
       "operation_names": [
-        "campo_vectorial_rgb_svg"
+        "saturacion_vecindad_rgb"
       ],
       "generator_seed": 243206254666206,
-      "generated_at_utc": "2026-08-16T15:45:05.601271+00:00",
+      "generated_at_utc": "2026-08-16T16:23:18.814878+00:00",
       "render_status": "ok"
     },
     {
@@ -3879,9 +3922,32 @@
       "operations": [
         {
           "step": 1,
+          "name": "deriva_vectorial_rgb",
+          "order": 6,
+          "seed": 243044218203212,
+          "legibility": 0.25,
+          "params": {
+            "DISTANCIA_MAX": 88,
+            "PASOS": 7,
+            "CURVATURA_MAX": 2.6,
+            "FUERZA_NEUTROS": 2.15,
+            "PESO_ORIGINAL": 0.1,
+            "ESCALA_PROCESO": 1.0
+          },
+          "input_size": [
+            1024,
+            512
+          ],
+          "output_size": [
+            1024,
+            512
+          ]
+        },
+        {
+          "step": 2,
           "name": "matriz_color",
           "order": 30,
-          "seed": 243044218203212,
+          "seed": 243044218204221,
           "legibility": 0.25,
           "params": {
             "COLS": 172,
@@ -3902,33 +3968,14 @@
             1024,
             512
           ]
-        },
-        {
-          "step": 2,
-          "name": "cmyk_reticula",
-          "order": 40,
-          "seed": 243044218204221,
-          "legibility": 0.25,
-          "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
-          },
-          "input_size": [
-            1024,
-            512
-          ],
-          "output_size": [
-            1024,
-            512
-          ]
         }
       ],
       "operation_names": [
-        "matriz_color",
-        "cmyk_reticula"
+        "deriva_vectorial_rgb",
+        "matriz_color"
       ],
       "generator_seed": 243044218202203,
-      "generated_at_utc": "2026-08-16T15:45:11.773322+00:00",
+      "generated_at_utc": "2026-08-16T16:23:20.219169+00:00",
       "render_status": "ok"
     },
     {
@@ -4012,13 +4059,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "cmyk_reticula",
-          "order": 40,
+          "name": "matriz_color",
+          "order": 30,
           "seed": 9038994144748,
           "legibility": 0.25,
           "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
+            "COLS": 172,
+            "NUM_COLORS": 102,
+            "STRENGTH": 1.45,
+            "REMAP_MODE": "CHAOTIC",
+            "REMAP_CHAOS": 0.78,
+            "REMAP_MAX_SHIFT": 18,
+            "REMAP_PRESERVE_FIRST": 0,
+            "REMAP_ROTATIONS": 4,
+            "REMAP_SEED": 0
           },
           "input_size": [
             1200,
@@ -4031,10 +4085,10 @@
         }
       ],
       "operation_names": [
-        "cmyk_reticula"
+        "matriz_color"
       ],
       "generator_seed": 9038994143739,
-      "generated_at_utc": "2026-08-16T15:45:21.884364+00:00",
+      "generated_at_utc": "2026-08-16T16:23:20.714456+00:00",
       "render_status": "ok"
     },
     {
@@ -4119,15 +4173,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "reconstruccion_parches",
-          "order": 200,
+          "name": "campo_vectorial_rgb_svg",
+          "order": 40,
           "seed": 108062383866434,
           "legibility": 0.25,
           "params": {
-            "TAM_PARCHE": 5,
-            "TOP_K": 25,
-            "DIST_MIN_PARCHES": 90,
-            "USAR_COLOR": true
+            "MUESTREO": 1,
+            "LONGITUD_MIN": 82.0,
+            "LONGITUD_MAX": 98.0,
+            "GROSOR_MIN": 1.0,
+            "GROSOR_MAX": 4.0,
+            "MODO_COLOR": "original",
+            "FONDO": "white",
+            "OPACIDAD": 90,
+            "ESCALA_SALIDA": 1.0
           },
           "input_size": [
             1191,
@@ -4140,10 +4199,10 @@
         }
       ],
       "operation_names": [
-        "reconstruccion_parches"
+        "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 108062383865425,
-      "generated_at_utc": "2026-08-16T15:45:24.573325+00:00",
+      "generated_at_utc": "2026-08-16T16:23:21.393224+00:00",
       "render_status": "ok"
     },
     {
@@ -4224,9 +4283,32 @@
       "operations": [
         {
           "step": 1,
+          "name": "deriva_vectorial_rgb",
+          "order": 6,
+          "seed": 238323251685909,
+          "legibility": 0.25,
+          "params": {
+            "DISTANCIA_MAX": 88,
+            "PASOS": 7,
+            "CURVATURA_MAX": 2.6,
+            "FUERZA_NEUTROS": 2.15,
+            "PESO_ORIGINAL": 0.1,
+            "ESCALA_PROCESO": 1.0
+          },
+          "input_size": [
+            1320,
+            743
+          ],
+          "output_size": [
+            1320,
+            743
+          ]
+        },
+        {
+          "step": 2,
           "name": "saturacion_vecindad_rgb",
           "order": 20,
-          "seed": 238323251685909,
+          "seed": 238323251686918,
           "legibility": 0.25,
           "params": {
             "ANCHO_PROCESO": 1200,
@@ -4245,35 +4327,14 @@
             1320,
             743
           ]
-        },
-        {
-          "step": 2,
-          "name": "reconstruccion_parches",
-          "order": 200,
-          "seed": 238323251686918,
-          "legibility": 0.25,
-          "params": {
-            "TAM_PARCHE": 5,
-            "TOP_K": 25,
-            "DIST_MIN_PARCHES": 90,
-            "USAR_COLOR": true
-          },
-          "input_size": [
-            1320,
-            743
-          ],
-          "output_size": [
-            1320,
-            743
-          ]
         }
       ],
       "operation_names": [
-        "saturacion_vecindad_rgb",
-        "reconstruccion_parches"
+        "deriva_vectorial_rgb",
+        "saturacion_vecindad_rgb"
       ],
       "generator_seed": 238323251684900,
-      "generated_at_utc": "2026-08-16T15:45:28.549350+00:00",
+      "generated_at_utc": "2026-08-16T16:23:24.500261+00:00",
       "render_status": "ok"
     },
     {
@@ -4345,17 +4406,15 @@
       "operations": [
         {
           "step": 1,
-          "name": "deriva_vectorial_rgb",
-          "order": 6,
+          "name": "reconstruccion_parches",
+          "order": 200,
           "seed": 85892429371011,
           "legibility": 0.25,
           "params": {
-            "DISTANCIA_MAX": 88,
-            "PASOS": 7,
-            "CURVATURA_MAX": 2.6,
-            "FUERZA_NEUTROS": 2.15,
-            "PESO_ORIGINAL": 0.1,
-            "ESCALA_PROCESO": 1.0
+            "TAM_PARCHE": 5,
+            "TOP_K": 25,
+            "DIST_MIN_PARCHES": 90,
+            "USAR_COLOR": true
           },
           "input_size": [
             1024,
@@ -4368,10 +4427,10 @@
         }
       ],
       "operation_names": [
-        "deriva_vectorial_rgb"
+        "reconstruccion_parches"
       ],
       "generator_seed": 85892429370002,
-      "generated_at_utc": "2026-08-16T15:45:29.930718+00:00",
+      "generated_at_utc": "2026-08-16T16:23:26.166129+00:00",
       "render_status": "ok"
     },
     {
@@ -4442,18 +4501,17 @@
       "operations": [
         {
           "step": 1,
-          "name": "saturacion_vecindad_rgb",
-          "order": 20,
+          "name": "deriva_vectorial_rgb",
+          "order": 6,
           "seed": 101741553423568,
           "legibility": 0.25,
           "params": {
-            "ANCHO_PROCESO": 1200,
-            "SUAVIZADO": 3.0,
-            "BINS_RGB": 12,
-            "TAMANO_MINIMO": 80,
-            "SATURACION": 0.9,
-            "UNIFICACION": 0.75,
-            "INTENSIDAD": 0.65
+            "DISTANCIA_MAX": 88,
+            "PASOS": 7,
+            "CURVATURA_MAX": 2.6,
+            "FUERZA_NEUTROS": 2.15,
+            "PESO_ORIGINAL": 0.1,
+            "ESCALA_PROCESO": 1.0
           },
           "input_size": [
             1200,
@@ -4466,10 +4524,10 @@
         }
       ],
       "operation_names": [
-        "saturacion_vecindad_rgb"
+        "deriva_vectorial_rgb"
       ],
       "generator_seed": 101741553422559,
-      "generated_at_utc": "2026-08-16T15:45:31.677515+00:00",
+      "generated_at_utc": "2026-08-16T16:23:28.336022+00:00",
       "render_status": "ok"
     },
     {
@@ -4590,15 +4648,20 @@
         },
         {
           "step": 3,
-          "name": "reconstruccion_parches",
-          "order": 200,
+          "name": "campo_vectorial_rgb_svg",
+          "order": 40,
           "seed": 35623424388649,
           "legibility": 0.25,
           "params": {
-            "TAM_PARCHE": 5,
-            "TOP_K": 25,
-            "DIST_MIN_PARCHES": 90,
-            "USAR_COLOR": true
+            "MUESTREO": 1,
+            "LONGITUD_MIN": 82.0,
+            "LONGITUD_MAX": 98.0,
+            "GROSOR_MIN": 1.0,
+            "GROSOR_MAX": 4.0,
+            "MODO_COLOR": "original",
+            "FONDO": "white",
+            "OPACIDAD": 90,
+            "ESCALA_SALIDA": 1.0
           },
           "input_size": [
             1280,
@@ -4613,10 +4676,10 @@
       "operation_names": [
         "saturacion_vecindad_rgb",
         "matriz_color",
-        "reconstruccion_parches"
+        "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 35623424385622,
-      "generated_at_utc": "2026-08-16T15:45:37.287641+00:00",
+      "generated_at_utc": "2026-08-16T16:23:36.706619+00:00",
       "render_status": "ok"
     },
     {
@@ -4719,20 +4782,18 @@
       "operations": [
         {
           "step": 1,
-          "name": "matriz_color",
-          "order": 30,
+          "name": "saturacion_vecindad_rgb",
+          "order": 20,
           "seed": 109922155908085,
           "legibility": 0.25,
           "params": {
-            "COLS": 172,
-            "NUM_COLORS": 102,
-            "STRENGTH": 1.45,
-            "REMAP_MODE": "CHAOTIC",
-            "REMAP_CHAOS": 0.78,
-            "REMAP_MAX_SHIFT": 18,
-            "REMAP_PRESERVE_FIRST": 0,
-            "REMAP_ROTATIONS": 4,
-            "REMAP_SEED": 0
+            "ANCHO_PROCESO": 1200,
+            "SUAVIZADO": 3.0,
+            "BINS_RGB": 12,
+            "TAMANO_MINIMO": 80,
+            "SATURACION": 0.9,
+            "UNIFICACION": 0.75,
+            "INTENSIDAD": 0.65
           },
           "input_size": [
             1280,
@@ -4745,10 +4806,10 @@
         }
       ],
       "operation_names": [
-        "matriz_color"
+        "saturacion_vecindad_rgb"
       ],
       "generator_seed": 109922155907076,
-      "generated_at_utc": "2026-08-16T15:45:37.807254+00:00",
+      "generated_at_utc": "2026-08-16T16:23:39.248278+00:00",
       "render_status": "ok"
     },
     {
@@ -4831,20 +4892,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "campo_vectorial_rgb_svg",
-          "order": 40,
+          "name": "matriz_color",
+          "order": 30,
           "seed": 166339884993549,
           "legibility": 0.25,
           "params": {
-            "MUESTREO": 1,
-            "LONGITUD_MIN": 82.0,
-            "LONGITUD_MAX": 98.0,
-            "GROSOR_MIN": 1.0,
-            "GROSOR_MAX": 4.0,
-            "MODO_COLOR": "original",
-            "FONDO": "white",
-            "OPACIDAD": 90,
-            "ESCALA_SALIDA": 1.0
+            "COLS": 172,
+            "NUM_COLORS": 102,
+            "STRENGTH": 1.45,
+            "REMAP_MODE": "CHAOTIC",
+            "REMAP_CHAOS": 0.78,
+            "REMAP_MAX_SHIFT": 18,
+            "REMAP_PRESERVE_FIRST": 0,
+            "REMAP_ROTATIONS": 4,
+            "REMAP_SEED": 0
           },
           "input_size": [
             634,
@@ -4857,10 +4918,10 @@
         }
       ],
       "operation_names": [
-        "campo_vectorial_rgb_svg"
+        "matriz_color"
       ],
       "generator_seed": 166339884992540,
-      "generated_at_utc": "2026-08-16T15:45:39.097932+00:00",
+      "generated_at_utc": "2026-08-16T16:23:39.489412+00:00",
       "render_status": "ok"
     },
     {
@@ -4963,13 +5024,18 @@
         },
         {
           "step": 2,
-          "name": "cmyk_reticula",
-          "order": 40,
+          "name": "saturacion_vecindad_rgb",
+          "order": 20,
           "seed": 106643496890711,
           "legibility": 0.25,
           "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
+            "ANCHO_PROCESO": 1200,
+            "SUAVIZADO": 3.0,
+            "BINS_RGB": 12,
+            "TAMANO_MINIMO": 80,
+            "SATURACION": 0.9,
+            "UNIFICACION": 0.75,
+            "INTENSIDAD": 0.65
           },
           "input_size": [
             634,
@@ -5009,11 +5075,11 @@
       ],
       "operation_names": [
         "deriva_vectorial_rgb",
-        "cmyk_reticula",
+        "saturacion_vecindad_rgb",
         "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 106643496888693,
-      "generated_at_utc": "2026-08-16T15:45:44.267710+00:00",
+      "generated_at_utc": "2026-08-16T16:23:41.670650+00:00",
       "render_status": "ok"
     },
     {
@@ -5093,13 +5159,20 @@
       "operations": [
         {
           "step": 1,
-          "name": "cmyk_reticula",
+          "name": "campo_vectorial_rgb_svg",
           "order": 40,
           "seed": 118994380617619,
           "legibility": 0.25,
           "params": {
-            "cell_size": 8,
-            "dot_scale": 0.8
+            "MUESTREO": 1,
+            "LONGITUD_MIN": 82.0,
+            "LONGITUD_MAX": 98.0,
+            "GROSOR_MIN": 1.0,
+            "GROSOR_MAX": 4.0,
+            "MODO_COLOR": "original",
+            "FONDO": "white",
+            "OPACIDAD": 90,
+            "ESCALA_SALIDA": 1.0
           },
           "input_size": [
             1024,
@@ -5112,10 +5185,10 @@
         }
       ],
       "operation_names": [
-        "cmyk_reticula"
+        "campo_vectorial_rgb_svg"
       ],
       "generator_seed": 118994380616610,
-      "generated_at_utc": "2026-08-16T15:45:50.755211+00:00",
+      "generated_at_utc": "2026-08-16T16:23:44.809256+00:00",
       "render_status": "ok"
     },
     {
@@ -5222,7 +5295,7 @@
         "reconstruccion_parches"
       ],
       "generator_seed": 141072701769050,
-      "generated_at_utc": "2026-08-16T15:45:51.525568+00:00",
+      "generated_at_utc": "2026-08-16T16:23:45.538508+00:00",
       "render_status": "ok"
     },
     {
@@ -5354,15 +5427,20 @@
         },
         {
           "step": 3,
-          "name": "reconstruccion_parches",
-          "order": 200,
+          "name": "matriz_color",
+          "order": 30,
           "seed": 194879505630541,
           "legibility": 0.25,
           "params": {
-            "TAM_PARCHE": 5,
-            "TOP_K": 25,
-            "DIST_MIN_PARCHES": 90,
-            "USAR_COLOR": true
+            "COLS": 172,
+            "NUM_COLORS": 102,
+            "STRENGTH": 1.45,
+            "REMAP_MODE": "CHAOTIC",
+            "REMAP_CHAOS": 0.78,
+            "REMAP_MAX_SHIFT": 18,
+            "REMAP_PRESERVE_FIRST": 0,
+            "REMAP_ROTATIONS": 4,
+            "REMAP_SEED": 0
           },
           "input_size": [
             841,
@@ -5377,10 +5455,10 @@
       "operation_names": [
         "deriva_vectorial_rgb",
         "saturacion_vecindad_rgb",
-        "reconstruccion_parches"
+        "matriz_color"
       ],
       "generator_seed": 194879505627514,
-      "generated_at_utc": "2026-08-16T15:45:53.758782+00:00",
+      "generated_at_utc": "2026-08-16T16:23:46.795870+00:00",
       "render_status": "ok"
     },
     {
@@ -5472,7 +5550,7 @@
         "deriva_vectorial_rgb"
       ],
       "generator_seed": 1867480138876,
-      "generated_at_utc": "2026-08-16T15:45:59.168320+00:00",
+      "generated_at_utc": "2026-08-16T16:23:52.114730+00:00",
       "render_status": "ok"
     },
     {
@@ -5565,7 +5643,7 @@
         "saturacion_vecindad_rgb"
       ],
       "generator_seed": 258436922741698,
-      "generated_at_utc": "2026-08-16T15:46:02.343875+00:00",
+      "generated_at_utc": "2026-08-16T16:23:55.200096+00:00",
       "render_status": "ok"
     }
   ],

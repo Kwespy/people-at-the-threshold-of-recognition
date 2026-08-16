@@ -155,7 +155,7 @@ OPERATIONS = {
 
     "cmyk_reticula": {
 
-        "enabled": True,
+        "enabled": False,
         "order": 40,
 
         "params": {
