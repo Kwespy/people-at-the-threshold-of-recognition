@@ -4025,65 +4025,8 @@
       "touchend",
       function(event) {
 
-        if (
-          touchIgnored
-          ||
-          touchStartX === null
-          ||
-          event.changedTouches.length !== 1
-        ) {
-
-          resetTouchGesture();
-          return;
-        }
-
-
-        const endX =
-          event.changedTouches[0].clientX;
-
-        const deltaX =
-          endX - touchStartX;
-
-
-        if (touchHorizontal) {
-
-          if (
-            touchOverflowX > 3
-          ) {
-
-            if (
-              edgeOverscrollPx
-              >=
-              EDGE_NAV_THRESHOLD
-            ) {
-
-              if (deltaX < 0) {
-                next();
-              }
-
-              else {
-                previous();
-              }
-            }
-          }
-
-          else if (
-            Math.abs(deltaX)
-            >=
-            NO_PAN_SWIPE_THRESHOLD
-          ) {
-
-            if (deltaX < 0) {
-              next();
-            }
-
-            else {
-              previous();
-            }
-          }
-        }
-
-
+        // El gesto táctil solo sirve para recorrer horizontalmente
+        // la imagen. Cambiar de imagen queda reservado a las flechas.
         resetTouchGesture();
       },
       {
