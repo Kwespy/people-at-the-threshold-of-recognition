@@ -866,6 +866,51 @@
       }
     }
 
+
+    /* ======================================================
+       MOBILE IMAGE PAN / EDGE SWIPE
+       Permite recorrer horizontalmente imágenes recortadas
+       por object-fit: cover sin dejar espacios vacíos.
+       ====================================================== */
+
+    #panHint {
+      display: none;
+      position: absolute;
+      left: 50%;
+      bottom: max(12px, env(safe-area-inset-bottom));
+      z-index: 35;
+      transform: translateX(-50%);
+      padding: 5px 8px;
+      background: rgba(0, 0, 0, 0.72);
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 8px;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.22s ease;
+    }
+
+    #panHint.visible {
+      opacity: 1;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      #stage {
+        touch-action: pan-y;
+      }
+
+      #image {
+        will-change: object-position;
+      }
+
+      #panHint {
+        display: block;
+      }
+    }
+
   </style>
 
 </head>
@@ -943,6 +988,11 @@
       INFO
     </button>
 
+
+    <div
+      id="panHint"
+      aria-hidden="true"
+    ></div>
 
 
     <div id="projectInfo"></div>
@@ -1027,6 +1077,12 @@
     const sourceToggle =
       document.getElementById(
         "sourceToggle"
+      );
+
+
+    const panHint =
+      document.getElementById(
+        "panHint"
       );
 
 
@@ -1190,6 +1246,9 @@
         imageAlt:
           "Border transit image",
 
+        dragExplore:
+          "↔ DRAG TO EXPLORE",
+
         language:
           "Language"
       },
@@ -1197,7 +1256,7 @@
 
       es: {
 
-        title: "Personas en el umbral del reconocimiento",
+        title: "Personas en el Umbral del Reconocimiento",
 
         description:
   "<strong>Personas en el umbral del reconocimiento</strong> trabaja con imágenes de personas que cruzan fronteras, registradas por cámaras y sistemas remotos, automáticos o continuos. En muchos casos, una imagen puede ser capturada sin que una persona decida el momento exacto de la toma.<br><br>Luego, un algoritmo del propio proyecto detecta presencia humana en estas imágenes. Las imágenes seleccionadas pasan por distintas transformaciones que las llevan hacia un punto entre el reconocimiento y la ilegibilidad.<br><br>La obra relaciona esta transformación de la imagen con la situación de cruzar una frontera. En ese contexto, una persona puede ser detectada y registrada por sistemas técnicos como presencia, movimiento o dato, sin que eso signifique reconocer quién es o cuál es su situación. Aparece así una diferencia entre detectar y reconocer: una máquina puede identificar que hay una persona sin reconocerla como alguien. El cruce territorial se conecta entonces con otro umbral, entre ser visto, ser detectado y ser reconocido.",
@@ -1276,6 +1335,9 @@
 
         imageAlt:
           "Imagen de tránsito fronterizo",
+
+        dragExplore:
+          "↔ ARRASTRA PARA EXPLORAR",
 
         language:
           "Idioma"
@@ -1441,6 +1503,12 @@
       image.alt =
         t(
           "imageAlt"
+        );
+
+
+      panHint.textContent =
+        t(
+          "dragExplore"
         );
 
 
@@ -2506,15 +2574,46 @@
         50;
 
 
+      currentImageFocusX =
+        clampPercent(
+          Number(focusX)
+        );
+
+
+      currentImageFocusY =
+        clampPercent(
+          Number(focusY)
+        );
+
+
+      mobilePanX =
+        currentImageFocusX;
+
+
       image.style.objectPosition =
 
-        focusX
+        mobilePanX
         +
         "% "
         +
-        focusY
+        currentImageFocusY
         +
         "%";
+
+
+      hidePanHint();
+
+
+      if (
+        image.complete
+        &&
+        image.naturalWidth > 0
+      ) {
+
+        requestAnimationFrame(
+          updatePanHint
+        );
+      }
 
 
       borderLine.innerHTML =
@@ -3508,54 +3607,433 @@
 
 
     // ======================================================
-    // TOUCH / SWIPE
+    // TOUCH / PAN / EDGE SWIPE
+    //
+    // Mobile behavior:
+    // - horizontal images remain full-screen with object-fit: cover
+    // - drag left/right to explore the cropped image
+    // - after reaching an image edge, continue dragging to change image
+    // - arrows continue to work normally
     // ======================================================
 
-    let touchStartX =
-      null;
+    const coarsePointer =
+      window.matchMedia(
+        "(hover: none) and (pointer: coarse)"
+      );
 
 
-    document.addEventListener(
+    let currentImageFocusX = 50;
+    let currentImageFocusY = 50;
+    let mobilePanX = 50;
 
-      "touchstart",
+    let touchStartX = null;
+    let touchStartY = null;
+    let touchLastX = null;
+    let touchPanStartX = 50;
+    let touchHorizontal = false;
+    let touchIgnored = false;
+    let touchOverflowX = 0;
+    let edgeOverscrollPx = 0;
 
-      function(event) {
+    let panHintDismissed = false;
+    let panHintTimer = null;
 
-        if (
-          event.touches.length
-          ===
-          1
-        ) {
+    const EDGE_NAV_THRESHOLD = 78;
+    const NO_PAN_SWIPE_THRESHOLD = 105;
+    const HORIZONTAL_LOCK_THRESHOLD = 7;
 
-          touchStartX =
-            event.touches[0].clientX;
-        }
-      },
 
-      {
-        passive:
-          true
+    function clampPercent(value) {
+
+      if (!Number.isFinite(value)) {
+        return 50;
       }
 
+      return Math.max(
+        0,
+        Math.min(
+          100,
+          value
+        )
+      );
+    }
+
+
+    function isTouchInterface() {
+
+      return (
+        coarsePointer.matches
+        ||
+        navigator.maxTouchPoints > 0
+      );
+    }
+
+
+    function horizontalImageOverflow() {
+
+      if (
+        !isTouchInterface()
+        ||
+        !image.naturalWidth
+        ||
+        !image.naturalHeight
+      ) {
+
+        return 0;
+      }
+
+
+      const rect =
+        document
+          .getElementById("stage")
+          .getBoundingClientRect();
+
+
+      if (
+        rect.width <= 0
+        ||
+        rect.height <= 0
+      ) {
+
+        return 0;
+      }
+
+
+      const scale =
+        Math.max(
+          rect.width / image.naturalWidth,
+          rect.height / image.naturalHeight
+        );
+
+
+      const displayedWidth =
+        image.naturalWidth
+        *
+        scale;
+
+
+      return Math.max(
+        0,
+        displayedWidth - rect.width
+      );
+    }
+
+
+    function setMobilePanX(value) {
+
+      mobilePanX =
+        clampPercent(value);
+
+
+      image.style.objectPosition =
+        mobilePanX
+        +
+        "% "
+        +
+        currentImageFocusY
+        +
+        "%";
+    }
+
+
+    function hidePanHint() {
+
+      if (panHintTimer) {
+        clearTimeout(
+          panHintTimer
+        );
+
+        panHintTimer = null;
+      }
+
+
+      panHint.classList.remove(
+        "visible"
+      );
+    }
+
+
+    function updatePanHint() {
+
+      hidePanHint();
+
+
+      if (
+        panHintDismissed
+        ||
+        !isTouchInterface()
+        ||
+        horizontalImageOverflow() < 4
+      ) {
+
+        return;
+      }
+
+
+      panHint.textContent =
+        t(
+          "dragExplore"
+        );
+
+
+      panHint.classList.add(
+        "visible"
+      );
+
+
+      panHintTimer =
+        setTimeout(
+          hidePanHint,
+          2600
+        );
+    }
+
+
+    function resetTouchGesture() {
+
+      touchStartX = null;
+      touchStartY = null;
+      touchLastX = null;
+      touchPanStartX = mobilePanX;
+      touchHorizontal = false;
+      touchIgnored = false;
+      touchOverflowX = 0;
+      edgeOverscrollPx = 0;
+    }
+
+
+    image.addEventListener(
+      "load",
+      () => {
+
+        requestAnimationFrame(
+          updatePanHint
+        );
+      }
+    );
+
+
+    window.addEventListener(
+      "resize",
+      () => {
+
+        requestAnimationFrame(
+          updatePanHint
+        );
+      },
+      {
+        passive: true
+      }
     );
 
 
     document.addEventListener(
-
-      "touchend",
-
+      "touchstart",
       function(event) {
 
         if (
-          touchStartX
-          ===
-          null
-          ||
-          event.changedTouches.length
-          !==
-          1
+          event.touches.length !== 1
         ) {
 
+          resetTouchGesture();
+          return;
+        }
+
+
+        const target =
+          event.target;
+
+
+        touchIgnored =
+          Boolean(
+            target
+            &&
+            target.closest
+            &&
+            target.closest(
+              "button"
+            )
+          );
+
+
+        if (touchIgnored) {
+
+          touchStartX = null;
+          touchStartY = null;
+          return;
+        }
+
+
+        touchStartX =
+          event.touches[0].clientX;
+
+        touchStartY =
+          event.touches[0].clientY;
+
+        touchLastX =
+          touchStartX;
+
+        touchPanStartX =
+          mobilePanX;
+
+        touchHorizontal = false;
+        edgeOverscrollPx = 0;
+
+        touchOverflowX =
+          horizontalImageOverflow();
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    document.addEventListener(
+      "touchmove",
+      function(event) {
+
+        if (
+          touchIgnored
+          ||
+          touchStartX === null
+          ||
+          touchStartY === null
+          ||
+          event.touches.length !== 1
+        ) {
+
+          return;
+        }
+
+
+        const x =
+          event.touches[0].clientX;
+
+        const y =
+          event.touches[0].clientY;
+
+        const deltaX =
+          x - touchStartX;
+
+        const deltaY =
+          y - touchStartY;
+
+
+        if (!touchHorizontal) {
+
+          if (
+            Math.abs(deltaX)
+            <
+            HORIZONTAL_LOCK_THRESHOLD
+            &&
+            Math.abs(deltaY)
+            <
+            HORIZONTAL_LOCK_THRESHOLD
+          ) {
+
+            return;
+          }
+
+
+          if (
+            Math.abs(deltaY)
+            >
+            Math.abs(deltaX)
+          ) {
+
+            touchIgnored = true;
+            return;
+          }
+
+
+          touchHorizontal = true;
+        }
+
+
+        event.preventDefault();
+
+        touchLastX = x;
+
+
+        if (
+          touchOverflowX > 3
+        ) {
+
+          const rawPosition =
+            touchPanStartX
+            -
+            (
+              deltaX
+              /
+              touchOverflowX
+              *
+              100
+            );
+
+
+          if (rawPosition < 0) {
+
+            edgeOverscrollPx =
+              (
+                -rawPosition
+                /
+                100
+              )
+              *
+              touchOverflowX;
+          }
+
+          else if (rawPosition > 100) {
+
+            edgeOverscrollPx =
+              (
+                rawPosition - 100
+              )
+              /
+              100
+              *
+              touchOverflowX;
+          }
+
+          else {
+
+            edgeOverscrollPx = 0;
+          }
+
+
+          setMobilePanX(
+            rawPosition
+          );
+
+
+          if (
+            Math.abs(deltaX) > 10
+          ) {
+
+            panHintDismissed = true;
+            hidePanHint();
+          }
+        }
+      },
+      {
+        passive: false
+      }
+    );
+
+
+    document.addEventListener(
+      "touchend",
+      function(event) {
+
+        if (
+          touchIgnored
+          ||
+          touchStartX === null
+          ||
+          event.changedTouches.length !== 1
+        ) {
+
+          resetTouchGesture();
           return;
         }
 
@@ -3563,47 +4041,63 @@
         const endX =
           event.changedTouches[0].clientX;
 
-
-        const delta =
-          endX
-          -
-          touchStartX;
+        const deltaX =
+          endX - touchStartX;
 
 
-        touchStartX =
-          null;
+        if (touchHorizontal) {
 
+          if (
+            touchOverflowX > 3
+          ) {
 
-        if (
-          Math.abs(
-            delta
-          )
-          <
-          45
-        ) {
+            if (
+              edgeOverscrollPx
+              >=
+              EDGE_NAV_THRESHOLD
+            ) {
 
-          return;
+              if (deltaX < 0) {
+                next();
+              }
+
+              else {
+                previous();
+              }
+            }
+          }
+
+          else if (
+            Math.abs(deltaX)
+            >=
+            NO_PAN_SWIPE_THRESHOLD
+          ) {
+
+            if (deltaX < 0) {
+              next();
+            }
+
+            else {
+              previous();
+            }
+          }
         }
 
 
-        if (
-          delta < 0
-        ) {
-
-          next();
-        }
-
-        else {
-
-          previous();
-        }
+        resetTouchGesture();
       },
-
       {
-        passive:
-          true
+        passive: true
       }
+    );
 
+
+    document.addEventListener(
+      "touchcancel",
+      resetTouchGesture,
+      {
+        passive: true
+      }
     );
 
 
