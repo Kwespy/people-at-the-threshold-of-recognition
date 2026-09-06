@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-PROJECT="$HOME/Desktop/border-transit-pool"
+PROJECT="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT"
 
 echo
@@ -60,3 +60,7 @@ echo "✓ ACTUALIZACIÓN ENVIADA"
 echo "Render actualizará la web automáticamente."
 echo "========================================"
 echo
+
+
+
+~/Desktop/border-transit-pool/actualizar_web.sh

@@ -1,7 +1,35 @@
 .venv/
+.venv-*/
 __pycache__/
+*.py[cod]
 .DS_Store
 live_rendered/
 pool_backups/
 *_scan/
 scans/
+
+# Entornos y archivos locales
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Resultados temporales de escaneo y recuperación
+**/videos/
+**/frames/
+**/contact_sheets/
+*.jsonl
+*.csv
+
+# Modelos locales pesados; conservar solo mediante almacenamiento externo
+models/
+*.pt
+*.onnx
+
+# Selección local de originales no publicados
+# pool_selection.json sí se versiona porque define el pool público.
+
+# Configuración local de VS Code
+.vscode/

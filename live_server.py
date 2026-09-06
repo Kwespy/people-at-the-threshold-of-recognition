@@ -4,12 +4,14 @@ from datetime import datetime, timezone
 from flask import (
     Flask,
     jsonify,
+    send_file,
     send_from_directory,
 )
 
 from PIL import Image, ImageOps
 
 import json
+import io
 import random
 import secrets
 import threading
@@ -67,17 +69,6 @@ MANIFEST_FILE = ROOT / "manifest.json"
 
 ORIGINALS_DIR = ROOT / "originals"
 
-LIVE_RENDERED_DIR = (
-    ROOT
-    /
-    "live_rendered"
-)
-
-LIVE_RENDERED_DIR.mkdir(
-    exist_ok=True
-)
-
-
 # ============================================================
 # CONFIG
 # ============================================================
@@ -126,6 +117,10 @@ last_source_id = None
 live_queue = queue.Queue(
     maxsize=LIVE_BUFFER_SIZE
 )
+
+# Las imágenes LIVE viven solo en memoria. No se escriben en disco,
+# no entran en Git y desaparecen al reiniciar el proceso.
+live_memory = {}
 
 worker_started = False
 
@@ -937,60 +932,13 @@ def save_render(
 
 
 # ============================================================
-# CLEAN LIVE CACHE
+# CLEAN LIVE MEMORY
 # ============================================================
 
 def cleanup_live_cache():
-
-    files = [
-
-        path
-
-        for path in
-        LIVE_RENDERED_DIR.iterdir()
-
-        if path.is_file()
-
-    ]
-
-
-    if (
-        len(files)
-        <=
-        MAX_LIVE_FILES
-    ):
-
-        return
-
-
-    files.sort(
-
-        key=lambda path:
-            path.stat().st_mtime
-
-    )
-
-
-    remove_count = (
-
-        len(files)
-        -
-        MAX_LIVE_FILES
-
-    )
-
-
-    for path in files[
-        :remove_count
-    ]:
-
-        try:
-
-            path.unlink()
-
-        except Exception:
-
-            pass
+    while len(live_memory) > MAX_LIVE_FILES:
+        oldest = next(iter(live_memory))
+        del live_memory[oldest]
 
 
 # ============================================================
@@ -1128,22 +1076,9 @@ def generate_one():
         )
 
 
-        output_path = (
-
-            LIVE_RENDERED_DIR
-            /
-            filename
-
-        )
-
-
-        save_render(
-
-            result,
-
-            output_path
-
-        )
+        output = io.BytesIO()
+        save_render(result, output)
+        live_memory[filename] = output.getvalue()
 
 
         cleanup_live_cache()
@@ -1443,14 +1378,17 @@ def api_live_status():
 def live_rendered(
     filename
 ):
+    data = live_memory.get(filename)
+    if data is None:
+        return ("Not found", 404)
 
-    return send_from_directory(
-
-        LIVE_RENDERED_DIR,
-
-        filename
-
-    )
+    mimetype = {
+        ".webp": "image/webp",
+        ".png": "image/png",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+    }.get(Path(filename).suffix.lower(), "application/octet-stream")
+    return send_file(io.BytesIO(data), mimetype=mimetype)
 
 
 # ============================================================

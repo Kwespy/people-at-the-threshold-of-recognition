@@ -85,6 +85,10 @@ ROOT = Path(__file__).resolve().parent
 
 POOL_FILE = ROOT / "pool.json"
 
+# Lista explícita de imágenes que forman parte del pool permanente.
+# Tener originales en originals/ no las incorpora automáticamente.
+POOL_SELECTION_FILE = ROOT / "pool_selection.json"
+
 ORIGINALS_DIR = ROOT / "originals"
 
 RENDERED_DIR = ROOT / "rendered"
@@ -161,7 +165,40 @@ def load_pool():
         )
 
 
-    return data
+    if not POOL_SELECTION_FILE.exists():
+        raise FileNotFoundError(
+            "No existe pool_selection.json; define explícitamente "
+            "las imágenes permanentes antes de generar."
+        )
+
+    selection = json.loads(
+        POOL_SELECTION_FILE.read_text(encoding="utf-8")
+    )
+
+    if not isinstance(selection, list) or not all(
+        isinstance(value, str) for value in selection
+    ):
+        raise ValueError(
+            "pool_selection.json debe contener una lista de IDs."
+        )
+
+    selected_ids = set(selection)
+    selected = [
+        item for item in data
+        if str(item.get("id", "")) in selected_ids
+        and item.get("status", "active") != "deleted"
+    ]
+
+    missing_ids = selected_ids - {
+        str(item.get("id", "")) for item in data
+    }
+    if missing_ids:
+        raise ValueError(
+            "IDs de pool_selection.json ausentes en pool.json: "
+            + ", ".join(sorted(missing_ids))
+        )
+
+    return selected
 
 
 # ============================================================
@@ -375,7 +412,7 @@ def resolve_original_path(
 # CLEAR RENDERED
 # ============================================================
 
-def clear_rendered():
+def clear_rendered(items):
 
     if not CLEAR_RENDERED_BEFORE_GENERATING:
         return
@@ -385,9 +422,12 @@ def clear_rendered():
         return
 
 
-    for path in (
-        RENDERED_DIR.iterdir()
-    ):
+    selected_ids = {
+        str(item.get("id", ""))
+        for item in items
+    }
+
+    for path in RENDERED_DIR.iterdir():
 
         if not path.is_file():
             continue
@@ -401,6 +441,11 @@ def clear_rendered():
             ".png",
 
         }:
+
+            # Nunca borrar renderizados que no pertenecen al pool
+            # seleccionado actual.
+            if path.stem not in selected_ids:
+                continue
 
             try:
 
@@ -1205,7 +1250,7 @@ def main():
     # CLEAN
     # ========================================================
 
-    clear_rendered()
+    clear_rendered(items)
 
 
     # ========================================================

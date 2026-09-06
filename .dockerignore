@@ -1,0 +1,13 @@
+.git
+.venv
+.venv-*/
+__pycache__
+.DS_Store
+originals
+live_rendered
+pool_backups
+*_scan
+scans
+*.jsonl
+*.csv
+*.pt
