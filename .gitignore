@@ -6,6 +6,8 @@ __pycache__/
 live_rendered/
 pool_backups/
 *_scan/
+*_scan_*/
+*scan_2*/
 scans/
 
 # Entornos y archivos locales

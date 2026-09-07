@@ -12,7 +12,7 @@ Border Transit mantiene un pool permanente de imágenes documentales y una web p
 - No incorporar automáticamente todas las imágenes de `originals/` al pool permanente.
 - Solo las imágenes seleccionadas explícitamente pueden entrar en `pool.json` y generar archivos permanentes en `rendered/`.
 - Las imágenes LIVE son temporales y deben vivir únicamente en memoria; nunca deben escribirse en disco ni añadirse a Git.
-- No subir originales, escaneos, vídeos, frames, contact sheets, entornos virtuales ni copias de seguridad a GitHub.
+- En Git solo deben estar los originales necesarios para renderizar el pool publicado (los IDs de `pool_selection.json`); el resto de `originals/`, escaneos, vídeos, frames, contact sheets, entornos virtuales y copias de seguridad no deben subirse a GitHub.
 
 ## Flujo actual
 

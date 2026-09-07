@@ -10,7 +10,7 @@ Proyecto visual que mantiene un pool de imágenes documentales y genera versione
 - `pool.json`: catálogo principal de imágenes.
 - `pool_selection.json`: lista explícita de IDs que forman el pool permanente.
 - `manifest.json`: manifiesto generado para la web.
-- `originals/`: fuentes originales locales; no forman parte del contenido público del repositorio.
+- `originals/`: fuentes originales. En Git solo deben estar los originales de las imágenes que pertenecen al pool publicado (los IDs listados en `pool_selection.json`), porque la máquina de producción los necesita para renderizar. El resto del material en `originals/` (todo lo que no está en `pool_selection.json`) es local y no debe subirse a GitHub.
 - `operations/`: transformaciones visuales.
 - `generate_pool.py`: genera las imágenes persistentes del pool.
 - `live_server.py`: servidor Flask con generación temporal en tiempo real; las imágenes LIVE solo viven en memoria.
@@ -60,9 +60,10 @@ La exposición pública de la máquina virtual requerirá posteriormente un serv
 
 ## Archivos que no deben publicarse
 
-No subir a GitHub:
+Regla de originales en Git: **solo deben estar en el repositorio los originales que se usan para renderizar**, es decir, los IDs incluidos en `pool_selection.json`. Todo lo demás debe quedarse fuera:
 
-- `originals/`
+- `originals/` — excepto los archivos correspondientes a los IDs de `pool_selection.json`
+- el resto del pool completo (`pool.json`) que no forma parte de `pool_selection.json`
 - resultados de escaneo
 - vídeos, frames y contact sheets
 - entornos virtuales
