@@ -68,6 +68,5 @@
   "year": 2019,
   "year_confidence": "documented",
   "year_basis": "derived from existing metadata field: event_date",
-  "year_inferred": false,
-  "original_sha256": "26b5ac2691ff3a339c0c31468f8b75e2cd6be700de5aa75ee2e13a4280721102"
+  "year_inferred": false
 }

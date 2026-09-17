@@ -77,6 +77,5 @@
   "year": 2025,
   "year_confidence": "documented",
   "year_basis": "derived from existing metadata field: event_date",
-  "year_inferred": false,
-  "original_sha256": "6b78334a77d72eaeaacdaeb0bf13ed7c68c7d8e956997bab04e0f4af07719138"
+  "year_inferred": false
 }

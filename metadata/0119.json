@@ -67,6 +67,5 @@
   "event_date": "2022",
   "year_confidence": "documented",
   "year_basis": "Fox News drone footage: Eagle Pass, August 2022",
-  "year_inferred": false,
-  "original_sha256": "6d93db09bb1d6e871edc08cdaef434adeaca5a89c86043d0b9d826996ae5c6e5"
+  "year_inferred": false
 }

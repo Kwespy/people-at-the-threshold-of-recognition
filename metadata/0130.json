@@ -64,6 +64,5 @@
   "event_date": "2021",
   "year_confidence": "documented",
   "year_basis": "Daily Mail Belarus–Poland source image dated November 2021",
-  "year_inferred": false,
-  "original_sha256": "dc29d36e52806d2f1f1ee3edeb48704a1b4ab792664f22cf33f77b7a6b5d710a"
+  "year_inferred": false
 }

@@ -69,6 +69,5 @@
   "event_date": "2024",
   "year_confidence": "documented",
   "year_basis": "The Markup article dated March 22, 2024",
-  "year_inferred": false,
-  "original_sha256": "eb5207480d23d91c4ad513ed2deb6c8533354591c2bdcda678353593701c0bf3"
+  "year_inferred": false
 }

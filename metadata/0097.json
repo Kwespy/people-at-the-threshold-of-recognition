@@ -81,6 +81,5 @@
   "year": 2024,
   "year_confidence": "documented",
   "year_basis": "derived from existing metadata field: event_date",
-  "year_inferred": false,
-  "original_sha256": "1ee6989430ecb64119e00f49222f8bc9115a5ba8ff317b1ad1d784e07f506e2f"
+  "year_inferred": false
 }

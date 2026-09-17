@@ -65,6 +65,5 @@
   "event_date": "2025",
   "year_confidence": "documented",
   "year_basis": "Texas DPS incident occurred November 28, 2025; News 4 San Antonio",
-  "year_inferred": false,
-  "original_sha256": "5d86654d54a2a89ecda9c8661ce56b2d62238e50e57a5581dd71c2e45adb996e"
+  "year_inferred": false
 }

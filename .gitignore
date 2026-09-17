@@ -32,6 +32,13 @@ models/
 
 # Selección local de originales no publicados
 # pool_selection.json sí se versiona porque define el pool público.
+originals/*
+rendered/*
+metadata/*
+recover_deleted_frames.py
+scan_border_clean_latam_world.py
+scan_unattended_border_video.py
+scan_unattended_clean_diverse.py
 
 # Configuración local de VS Code
 .vscode/

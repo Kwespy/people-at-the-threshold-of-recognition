@@ -67,6 +67,5 @@
   "event_date": "2025",
   "year_confidence": "documented",
   "year_basis": "Express source/publication context from April 2025",
-  "year_inferred": false,
-  "original_sha256": "fe55392c88d09af3e3d812022912937f1d61023b0203556f5a1357da7fa06fe1"
+  "year_inferred": false
 }

@@ -68,6 +68,5 @@
   "event_date": "2025",
   "year_confidence": "documented",
   "year_basis": "Bangkok Post source dated March 2025",
-  "year_inferred": false,
-  "original_sha256": "c52c7c1a0b4b84ac1b6c0c3eb3f2586ead999ad57ca17d9bf182cd43475ce07a"
+  "year_inferred": false
 }

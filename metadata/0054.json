@@ -62,6 +62,5 @@
   "year": 2018,
   "year_confidence": "documented",
   "year_basis": "derived from existing metadata field: date",
-  "year_inferred": false,
-  "original_sha256": "5d226c90883a342cf207482b14e050c3ffd05fc2941b45efea68419d39e82d51"
+  "year_inferred": false
 }

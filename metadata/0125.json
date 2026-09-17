@@ -55,6 +55,5 @@
   "event_date": "2024",
   "year_confidence": "inferred",
   "year_basis": "Newsweek article chronology / article ID; exact image capture date unavailable",
-  "year_inferred": true,
-  "original_sha256": "49f9d95c70ca43a3a740a250ff845c9c14a4d1594472ace0381f1eb63cf3c7a3"
+  "year_inferred": true
 }
