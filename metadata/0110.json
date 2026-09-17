@@ -68,5 +68,6 @@
   "event_date": "2022",
   "year_confidence": "documented",
   "year_basis": "Daily Mail thermal footage / source image and article chronology",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "5a757926b3157cff231ad45ef4eeb65069cfbcb34b799f59532f6229a51a57d0"
 }

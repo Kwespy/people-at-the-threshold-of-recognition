@@ -58,5 +58,6 @@
   "year": 2022,
   "year_confidence": "documented",
   "year_basis": "derived from existing metadata field: event_date",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "0e8746917981b106e61d3cab78d6a9e64d33e49ff918056eab93b53ca7193d30"
 }

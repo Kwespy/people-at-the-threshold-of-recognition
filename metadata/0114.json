@@ -60,5 +60,6 @@
   "event_date": "2021",
   "year_confidence": "documented",
   "year_basis": "Fox News video dated May 11, 2021",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "e580915e787e27c9664c0ca503625b5d22cc3d78428c7eb20024c18d02a6bdee"
 }

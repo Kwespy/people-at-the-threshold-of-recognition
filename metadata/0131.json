@@ -64,5 +64,6 @@
   "event_date": "2021",
   "year_confidence": "documented",
   "year_basis": "BBC Belarus border coverage, November 2021",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "204079614c5ec0776f77493c4d7543dc87956371ff1223cd7f3676ef62581138"
 }

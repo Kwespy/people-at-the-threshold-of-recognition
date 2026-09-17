@@ -64,5 +64,6 @@
   "event_date": "2025",
   "year_confidence": "inferred",
   "year_basis": "MSN / U.S. Coast Guard source chronology; exact capture date unavailable",
-  "year_inferred": true
+  "year_inferred": true,
+  "original_sha256": "02b660d804c3d070fefe3b65b4342253028220890eb626ee637b606e8972e820"
 }

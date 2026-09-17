@@ -67,5 +67,6 @@
   "event_date": "2026",
   "year_confidence": "documented",
   "year_basis": "Daily Mail source/image dated February 2026",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "f3c60e5c8987865d063d18900aef63dc6c09c124d3dbf8f7b80b46c4fefae045"
 }

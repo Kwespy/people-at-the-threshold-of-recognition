@@ -67,5 +67,6 @@
   "event_date": "2024",
   "year_confidence": "documented",
   "year_basis": "Express Channel source/image chronology dated February 2024",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "b639265632f9b5ff4fc1577a11cc37f82d81337ce4522383e92ebe80ab5c55cf"
 }

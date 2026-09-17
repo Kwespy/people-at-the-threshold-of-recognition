@@ -9,7 +9,7 @@
 # POOL
 # ------------------------------------------------------------
 
-POOL_SIZE = 60
+POOL_SIZE = 259
 
 # Cada 3 imágenes:
 # 2 operaciones individuales + 1 mezcla

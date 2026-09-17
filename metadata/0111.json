@@ -67,5 +67,6 @@
   "event_date": "2025",
   "year_confidence": "documented",
   "year_basis": "Telegraph source article dated 2025",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "d845e68743bc0a60684e85ea82c456f549b5f13ed3c026e6de5220d0c1991bc0"
 }

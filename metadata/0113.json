@@ -60,5 +60,6 @@
   "event_date": "2024",
   "year_confidence": "documented",
   "year_basis": "Fox News article and Lukeville footage published March 2024",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "f727a71a746b769e146f9a4d4442904dae6205dd578d7229552decd05a381f40"
 }

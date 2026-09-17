@@ -87,5 +87,6 @@
   "event_date": "2023",
   "year_confidence": "documented",
   "year_basis": "Fox News Eagle Pass drone source and source image path dated September 2023",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "b6c055fce299a1082242e0f6ba0a050863a3b9c9e86d7a5bdc45d47f571da3a2"
 }

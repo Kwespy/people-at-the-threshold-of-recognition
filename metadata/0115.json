@@ -67,5 +67,6 @@
   "event_date": "2025",
   "year_confidence": "documented",
   "year_basis": "GB News source dated September 2025",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "8d951ad2d5a05e0891fb4bf85325b294b5b974c9b15d7d044cca870db7794592"
 }

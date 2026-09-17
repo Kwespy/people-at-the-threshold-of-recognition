@@ -50,5 +50,6 @@
   "year": 2026,
   "year_confidence": "documented",
   "year_basis": "UK Immigration Enforcement source event dated April 18, 2026",
-  "year_inferred": false
+  "year_inferred": false,
+  "original_sha256": "ffc4336a02f174ce833f88ca6f6209d05662a4e1a34df03b35607cafb8894e59"
 }
